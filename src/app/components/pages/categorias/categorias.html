@@ -1,0 +1,30 @@
+<div class="bh-p-6">
+    <div class="bh-d-flex bh-justify-between bh-align-center bh-mb-6">
+        <button class="bh-panel__button" [routerLink]="['/crear']" [queryParams]="{tipo: 'categoria'}">Crear
+            Categoría</button>
+        <div class="bh-d-flex bh-gap-2">
+            <input type="text" placeholder="Buscar" class="bh-p-2 bh-rounded-md">
+            <button class="bh-panel__button" (click)="Buscar()">🔍</button>
+        </div>
+    </div>
+
+    <table class="bh-w-full bh-text-left">
+        <thead>
+            <tr>
+                <th class="bh-p-3 bh-texto-primario">Nombre</th>
+                <th class="bh-p-3 bh-texto-primario">Descripción</th>
+                <th class="bh-p-3"></th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (categoria of CatFiltradas; track categoria.id) {
+            <tr class="bh-fondo-gris">
+                <td class="bh-p-3 bh-texto-primario">{{categoria.nombre}}</td>
+                <td class="bh-p-3 bh-texto-primario">{{categoria.descripcion}}</td>
+                <td class="bh-p-3"><a [routerLink]="['/mod']" [queryParams]="{tipo: 'categoria', id: categoria.id}"
+                        class="bh-cursor-pointer bh-texto-acento">Modificar</a></td>
+            </tr>
+            }
+        </tbody>
+    </table>
+</div>

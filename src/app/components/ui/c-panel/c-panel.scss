@@ -1,0 +1,60 @@
+// Panel Component Styles (BEM with bh-- prefix)
+.bh-panel {
+    background-color: var(--bh-color-superficie);
+    border-radius: var(--bh-radio-5);
+    padding: var(--bh-espacio-6) var(--bh-espacio-8);
+    min-width: 250px;
+    display: flex;
+    flex-direction: column;
+    gap: var(--bh-espacio-4);
+    box-shadow: var(--bh-sombra-3);
+
+    // Title element
+    &__title {
+        color: var(--bh-color-texto-primario);
+        font-size: var(--bh-texto-3);
+        font-weight: var(--bh-peso-2);
+        margin: 0;
+        text-align: left;
+    }
+
+    // Number element
+    &__number {
+        color: var(--bh-color-texto-primario);
+        font-size: var(--bh-texto-9);
+        font-weight: var(--bh-peso-5);
+        margin: 0;
+        line-height: var(--bh-altura-linea-1);
+        text-align: left;
+    }
+
+    // Actions container
+    &__actions {
+        display: flex;
+        flex-direction: column;
+        gap: var(--bh-espacio-3);
+    }
+
+    // Button element
+    &__button {
+        background-color: var(--bh-color-acento);
+        color: var(--bh-color-texto-secundario);
+        border: none;
+        border-radius: var(--bh-radio-2);
+        padding: var(--bh-espacio-2) var(--bh-espacio-6);
+        font-size: var(--bh-texto-2);
+        font-weight: var(--bh-peso-3);
+        cursor: pointer;
+        transition: all var(--bh-transicion-2);
+
+        &:hover {
+            background-color: var(--bh-color-gris-3);
+            transform: translateY(-2px);
+            box-shadow: var(--bh-sombra-2);
+        }
+
+        &:active {
+            transform: translateY(0);
+        }
+    }
+}

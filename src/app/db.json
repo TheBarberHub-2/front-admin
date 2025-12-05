@@ -1,0 +1,67 @@
+{
+    "usuarios": [
+        {
+            "id": 1,
+            "email": "admin@thebarberhub.com",
+            "nombre": "Administrador",
+            "rol": "Admin"
+        },
+        {
+            "id": 2,
+            "email": "peluqueria_valencia@gmail.com",
+            "nombre": "Barbería Valencia",
+            "rol": "Peluqueria"
+        },
+        {
+            "id": 3,
+            "email": "peluqueria_madrid@gmail.com",
+            "nombre": "Barbería Madrid",
+            "rol": "Peluqueria"
+        },
+        {
+            "id": 4,
+            "email": "juan.cliente@gmail.com",
+            "nombre": "Juan Pérez",
+            "rol": "Cliente"
+        },
+        {
+            "id": 5,
+            "email": "maria.cliente@gmail.com",
+            "nombre": "María López",
+            "rol": "Cliente"
+        }
+    ],
+    "peluquerias": [
+        {
+            "id": 1,
+            "usuario_id": 2,
+            "municipio": "Valencia",
+            "direccion": "Calle Colón 25",
+            "telefono": "600123456"
+        },
+        {
+            "id": 2,
+            "usuario_id": 3,
+            "municipio": "Madrid",
+            "direccion": "Gran Vía 100",
+            "telefono": "611987654"
+        }
+    ],
+    "categorias": [
+        {
+            "id": 1,
+            "nombre": "Corte de pelo",
+            "descripcion": "Corte de pelo clásico o moderno"
+        },
+        {
+            "id": 2,
+            "nombre": "Afeitado",
+            "descripcion": "Afeitado con navaja y toalla caliente"
+        },
+        {
+            "id": 3,
+            "nombre": "Tinte",
+            "descripcion": "Tinte de cabello y barba"
+        }
+    ]
+}

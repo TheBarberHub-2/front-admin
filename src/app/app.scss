@@ -1,0 +1,18 @@
+// App - Layout principal
+// Asegura que el footer esté siempre al fondo de la página
+
+:host {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+app-root {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+router-outlet+* {
+    flex: 1;
+}

@@ -1,0 +1,35 @@
+<div>
+    <div>
+        <button>Crear Peluquería</button>
+        <div>
+            <input type="text" placeholder="Buscar">
+            <button>🔍</button>
+        </div>
+    </div>
+
+    <table>
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Ciudad</th>
+                <th>Dirección</th>
+                <th>Teléfono</th>
+                <th>Email</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (peluqueria of peluquerias; track peluqueria.id) {
+            <tr>
+                <td>{{peluqueria.nombre}}</td>
+                <td>{{peluqueria.municipio}}</td>
+                <td>{{peluqueria.direccion}}</td>
+                <td>{{peluqueria.telefono}}</td>
+                <td>{{peluqueria.email}}</td>
+                <td><a [routerLink]="['/mod']" [queryParams]="{tipo: 'peluqueria', id: peluqueria.id}">Modificar</a>
+                </td>
+            </tr>
+            }
+        </tbody>
+    </table>
+</div>

@@ -1,0 +1,114 @@
+<div class="c-mod-container">
+    <!-- Formulario de Peluquería -->
+    @if (tipo === 'peluqueria') {
+    <div class="form-wrapper">
+        <h2>Modificar Peluquería</h2>
+        <form [formGroup]="peluqueriaForm" (ngSubmit)="onSubmitPeluqueria()">
+            <div class="form-group">
+                <label for="nombre">Nombre *</label>
+                <input type="text" id="nombre" formControlName="nombre"
+                    [class.error]="peluqueriaForm.get('nombre')?.invalid && peluqueriaForm.get('nombre')?.touched" />
+                @if (peluqueriaForm.get('nombre')?.invalid && peluqueriaForm.get('nombre')?.touched) {
+                <span class="error-message">
+                    El nombre es requerido
+                </span>
+                }
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email *</label>
+                <input type="email" id="email" formControlName="email"
+                    [class.error]="peluqueriaForm.get('email')?.invalid && peluqueriaForm.get('email')?.touched" />
+                @if (peluqueriaForm.get('email')?.invalid && peluqueriaForm.get('email')?.touched) {
+                <span class="error-message">
+                    Email válido requerido
+                </span>
+                }
+            </div>
+
+            <div class="form-group">
+                <label for="telefono">Teléfono *</label>
+                <input type="tel" id="telefono" formControlName="telefono"
+                    [class.error]="peluqueriaForm.get('telefono')?.invalid && peluqueriaForm.get('telefono')?.touched" />
+                @if (peluqueriaForm.get('telefono')?.invalid && peluqueriaForm.get('telefono')?.touched) {
+                <span class="error-message">
+                    El teléfono es requerido
+                </span>
+                }
+            </div>
+
+            <div class="form-group">
+                <label for="direccion">Dirección *</label>
+                <input type="text" id="direccion" formControlName="direccion"
+                    [class.error]="peluqueriaForm.get('direccion')?.invalid && peluqueriaForm.get('direccion')?.touched" />
+                @if (peluqueriaForm.get('direccion')?.invalid && peluqueriaForm.get('direccion')?.touched) {
+                <span class="error-message">
+                    La dirección es requerida
+                </span>
+                }
+            </div>
+
+            <div class="form-group">
+                <label for="ciudad">Ciudad *</label>
+                <input type="text" id="ciudad" formControlName="ciudad"
+                    [class.error]="peluqueriaForm.get('ciudad')?.invalid && peluqueriaForm.get('ciudad')?.touched" />
+                @if (peluqueriaForm.get('ciudad')?.invalid && peluqueriaForm.get('ciudad')?.touched) {
+                <span class="error-message">
+                    La ciudad es requerida
+                </span>
+                }
+            </div>
+
+
+            <div class="form-actions">
+                <button type="submit" [disabled]="peluqueriaForm.invalid" class="btn-submit">
+                    Guardar Cambios
+                </button>
+                <button type="button" class="btn-cancel" routerLink="/">
+                    Cancelar
+                </button>
+            </div>
+        </form>
+    </div>
+    }
+
+    <!-- Formulario de Categoría -->
+    @if (tipo === 'categoria') {
+    <div class="form-wrapper">
+        <h2>Modificar Categoría</h2>
+        <form [formGroup]="categoriaForm" (ngSubmit)="onSubmitCategoria()">
+            <div class="form-group">
+                <label for="nombre-categoria">Nombre *</label>
+                <input type="text" id="nombre-categoria" formControlName="nombre"
+                    [class.error]="categoriaForm.get('nombre')?.invalid && categoriaForm.get('nombre')?.touched" />
+                @if (categoriaForm.get('nombre')?.invalid && categoriaForm.get('nombre')?.touched) {
+                <span class="error-message">
+                    El nombre es requerido
+                </span>
+                }
+            </div>
+
+            <div class="form-group">
+                <label for="descripcion-categoria">Descripción</label>
+                <textarea id="descripcion-categoria" formControlName="descripcion" rows="4"></textarea>
+            </div>
+
+            <div class="form-actions">
+                <button type="submit" [disabled]="categoriaForm.invalid" class="btn-submit">
+                    Guardar Cambios
+                </button>
+                <button type="button" class="btn-cancel" routerLink="/">
+                    Cancelar
+                </button>
+            </div>
+        </form>
+    </div>
+    }
+
+    <!-- Mensaje si no hay tipo especificado -->
+    @if (!tipo) {
+    <div class="no-data">
+        <p>No se ha especificado qué modificar. Por favor, selecciona una peluquería o categoría.</p>
+    </div>
+    }
+</div>

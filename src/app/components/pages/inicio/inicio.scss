@@ -1,0 +1,20 @@
+// Inicio Page Styles (BEM with bh-- prefix)
+.bh-inicio {
+    background-color: var(--bh-color-fondo);
+    min-height: 100vh;
+    padding: var(--bh-espacio-12) var(--bh-espacio-6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: var(--bh-espacio-12);
+    flex-wrap: wrap;
+}
+
+// Responsive design
+@media (max-width: 768px) {
+    .bh-inicio {
+        flex-direction: column;
+        gap: var(--bh-espacio-6);
+        padding: var(--bh-espacio-6) var(--bh-espacio-4);
+    }
+}

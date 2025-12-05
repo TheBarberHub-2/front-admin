@@ -1,0 +1,19 @@
+// Categorias Component Styles
+table {
+    border-collapse: separate;
+    border-spacing: 0 var(--bh-espacio-2);
+}
+
+tr {
+    background-color: var(--bh-color-gris-2);
+}
+
+td:first-child {
+    border-top-left-radius: var(--bh-radio-2);
+    border-bottom-left-radius: var(--bh-radio-2);
+}
+
+td:last-child {
+    border-top-right-radius: var(--bh-radio-2);
+    border-bottom-right-radius: var(--bh-radio-2);
+}

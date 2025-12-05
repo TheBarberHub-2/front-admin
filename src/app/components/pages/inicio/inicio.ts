@@ -1,0 +1,31 @@
+import { Component, OnInit } from '@angular/core';
+import { CPanel } from '../../ui/c-panel/c-panel';
+import { PeluqueriasService } from '../../../services/peluquerias.service';
+import { CategoriasService } from '../../../services/categorias.service';
+
+@Component({
+  selector: 'app-inicio',
+  standalone: true,
+  imports: [CPanel],
+  templateUrl: './inicio.html',
+  styleUrl: './inicio.scss',
+})
+export class Inicio implements OnInit {
+  peluqueriasCount: number = 0;
+  categoriasCount: number = 0;
+
+  constructor(
+    private peluqueriasService: PeluqueriasService,
+    private categoriasService: CategoriasService
+  ) { }
+
+  ngOnInit() {
+    this.peluqueriasService.getPeluquerias().subscribe(data => {
+      this.peluqueriasCount = data.length;
+    });
+
+    this.categoriasService.getCategorias().subscribe(data => {
+      this.categoriasCount = data.length;
+    });
+  }
+}

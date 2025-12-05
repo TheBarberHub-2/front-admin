@@ -1,0 +1,115 @@
+// c-footer - Componente Footer
+// Siguiendo metodología BEM y usando variables globales
+
+.c-footer {
+    background-color: var(--bh-color-superficie);
+    color: var(--bh-color-texto-primario);
+    padding: var(--bh-espacio-8) var(--bh-espacio-6);
+    text-align: center;
+    box-shadow: var(--bh-sombra-2);
+    margin-top: auto;
+
+    // Elemento: Copy (copyright)
+    &__copy {
+        font-size: var(--bh-texto-2);
+        color: var(--bh-color-gris-3);
+        margin: 0 0 var(--bh-espacio-4) 0;
+        font-weight: var(--bh-peso-2);
+    }
+
+    // Elemento: Social (contenedor de redes sociales)
+    &__social {
+        display: flex;
+        justify-content: center;
+        gap: var(--bh-espacio-4);
+        margin-bottom: var(--bh-espacio-6);
+    }
+
+    // Elemento: Social Link
+    &__social-link {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        border-radius: var(--bh-radio-completo);
+        background-color: var(--bh-color-gris-1);
+        color: var(--bh-color-texto-primario);
+        text-decoration: none;
+        font-size: var(--bh-texto-5);
+        transition: all var(--bh-transicion-2);
+
+        // Hover effect
+        &:hover {
+            background-color: var(--bh-color-blanco);
+            color: var(--bh-color-negro);
+            transform: translateY(-3px);
+            box-shadow: var(--bh-sombra-3);
+        }
+
+        // Active effect
+        &:active {
+            transform: translateY(-1px);
+        }
+    }
+
+    // Elemento: Links (contenedor de enlaces)
+    &__links {
+        display: flex;
+        justify-content: center;
+        gap: var(--bh-espacio-6);
+        flex-wrap: wrap;
+        margin: 0;
+        padding-top: var(--bh-espacio-4);
+        border-top: 1px solid var(--bh-color-gris-1);
+    }
+
+    // Elemento: Link
+    &__link {
+        color: var(--bh-color-gris-3);
+        text-decoration: none;
+        font-size: var(--bh-texto-2);
+        font-weight: var(--bh-peso-2);
+        transition: color var(--bh-transicion-1);
+        position: relative;
+
+        // Hover effect
+        &:hover {
+            color: var(--bh-color-blanco);
+        }
+
+        // Separador entre enlaces (excepto el último)
+        &:not(:last-child)::after {
+            content: '|';
+            position: absolute;
+            right: calc(var(--bh-espacio-6) / -2);
+            color: var(--bh-color-gris-1);
+        }
+    }
+}
+
+// Responsive
+@media (max-width: 768px) {
+    .c-footer {
+        padding: var(--bh-espacio-6) var(--bh-espacio-4);
+
+        &__links {
+            flex-direction: column;
+            gap: var(--bh-espacio-3);
+        }
+
+        &__link:not(:last-child)::after {
+            display: none;
+        }
+
+        &__social {
+            gap: var(--bh-espacio-3);
+        }
+
+        &__social-link {
+            width: 36px;
+            height: 36px;
+            font-size: var(--bh-texto-4);
+        }
+    }
+}
