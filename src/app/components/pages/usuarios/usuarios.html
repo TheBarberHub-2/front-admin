@@ -1,0 +1,32 @@
+<div class="usuarios-page bh-p-6">
+    <div class="usuarios-page__header bh-d-flex bh-justify-between bh-align-center bh-mb-6">
+        <button class="usuarios-page__button bh-panel__button" [routerLink]="['/crear']"
+            [queryParams]="{tipo: 'usuario'}">Crear Usuario</button>
+        <div class="usuarios-page__search bh-d-flex bh-gap-2">
+            <input type="text" placeholder="Buscar" class="usuarios-page__input bh-p-2 bh-rounded-md">
+            <button class="usuarios-page__search-btn bh-panel__button">🔍</button>
+        </div>
+    </div>
+
+    <table class="usuarios-page__table bh-w-full bh-text-left">
+        <thead>
+            <tr>
+                <th class="bh-p-3 bh-texto-primario">Nombre</th>
+                <th class="bh-p-3 bh-texto-primario">Email</th>
+                <th class="bh-p-3 bh-texto-primario">Rol</th>
+                <th class="bh-p-3"></th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (usuario of usuarios; track usuario.id) {
+            <tr class="usuarios-page__row bh-fondo-gris">
+                <td class="bh-p-3 bh-texto-primario">{{usuario.nombre}}</td>
+                <td class="bh-p-3 bh-texto-primario">{{usuario.email}}</td>
+                <td class="bh-p-3 bh-texto-primario">{{usuario.rol}}</td>
+                <td class="bh-p-3"><a [routerLink]="['/mod']" [queryParams]="{tipo: 'usuario', id: usuario.id}"
+                        class="usuarios-page__link bh-cursor-pointer bh-texto-acento">Modificar</a></td>
+            </tr>
+            }
+        </tbody>
+    </table>
+</div>

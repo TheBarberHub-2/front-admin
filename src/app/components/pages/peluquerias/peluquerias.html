@@ -1,33 +1,33 @@
-<div>
-    <div>
-        <button>Crear Peluquería</button>
-        <div>
-            <input type="text" placeholder="Buscar">
-            <button>🔍</button>
+<div class="peluquerias-page bh-p-6">
+    <div class="peluquerias-page__header bh-d-flex bh-justify-between bh-align-center bh-mb-6">
+        <button class="peluquerias-page__button bh-panel__button" routerLink="/crear" [queryParams]="{tipo: 'peluqueria'}">Crear Peluquería</button>
+        <div class="peluquerias-page__search bh-d-flex bh-gap-2">
+            <input type="text" placeholder="Buscar" class="peluquerias-page__input bh-p-2 bh-rounded-md">
+            <button class="peluquerias-page__search-btn bh-panel__button">🔍</button>
         </div>
     </div>
 
-    <table>
+    <table class="peluquerias-page__table bh-w-full bh-text-left">
         <thead>
             <tr>
-                <th>Nombre</th>
-                <th>Ciudad</th>
-                <th>Dirección</th>
-                <th>Teléfono</th>
-                <th>Email</th>
-                <th></th>
+                <th class="bh-p-3 bh-texto-primario">Nombre</th>
+                <th class="bh-p-3 bh-texto-primario">Ciudad</th>
+                <th class="bh-p-3 bh-texto-primario">Dirección</th>
+                <th class="bh-p-3 bh-texto-primario">Teléfono</th>
+                <th class="bh-p-3 bh-texto-primario">Email</th>
+                <th class="bh-p-3"></th>
             </tr>
         </thead>
         <tbody>
             @for (peluqueria of peluquerias; track peluqueria.id) {
-            <tr>
-                <td>{{peluqueria.nombre}}</td>
-                <td>{{peluqueria.municipio}}</td>
-                <td>{{peluqueria.direccion}}</td>
-                <td>{{peluqueria.telefono}}</td>
-                <td>{{peluqueria.email}}</td>
-                <td><a [routerLink]="['/mod']" [queryParams]="{tipo: 'peluqueria', id: peluqueria.id}">Modificar</a>
-                </td>
+            <tr class="peluquerias-page__row bh-fondo-gris">
+                <td class="bh-p-3 bh-texto-primario">{{peluqueria.nombre}}</td>
+                <td class="bh-p-3 bh-texto-primario">{{peluqueria.municipio}}</td>
+                <td class="bh-p-3 bh-texto-primario">{{peluqueria.direccion}}</td>
+                <td class="bh-p-3 bh-texto-primario">{{peluqueria.telefono}}</td>
+                <td class="bh-p-3 bh-texto-primario">{{peluqueria.email}}</td>
+                <td class="bh-p-3"><a [routerLink]="['/mod']" [queryParams]="{tipo: 'peluqueria', id: peluqueria.id}"
+                        class="peluquerias-page__link bh-cursor-pointer bh-texto-acento">Modificar</a></td>
             </tr>
             }
         </tbody>

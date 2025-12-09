@@ -6,65 +6,39 @@
         <form [formGroup]="peluqueriaForm" (ngSubmit)="onSubmitPeluqueria()">
             <div class="form-group">
                 <label for="nombre">Nombre *</label>
-                <input type="text" id="nombre" formControlName="nombre"
-                    [class.error]="peluqueriaForm.get('nombre')?.invalid && peluqueriaForm.get('nombre')?.touched" />
-                @if (peluqueriaForm.get('nombre')?.invalid && peluqueriaForm.get('nombre')?.touched) {
-                <span class="error-message">
-                    El nombre es requerido
-                </span>
-                }
+                <input type="text" id="nombre" formControlName="nombre" required />
             </div>
 
             <div class="form-group">
                 <label for="email">Email *</label>
-                <input type="email" id="email" formControlName="email"
-                    [class.error]="peluqueriaForm.get('email')?.invalid && peluqueriaForm.get('email')?.touched" />
-                @if (peluqueriaForm.get('email')?.invalid && peluqueriaForm.get('email')?.touched) {
-                <span class="error-message">
-                    Email válido requerido
-                </span>
-                }
+                <input type="email" id="email" formControlName="email" required />
             </div>
 
             <div class="form-group">
                 <label for="telefono">Teléfono *</label>
-                <input type="tel" id="telefono" formControlName="telefono"
-                    [class.error]="peluqueriaForm.get('telefono')?.invalid && peluqueriaForm.get('telefono')?.touched" />
-                @if (peluqueriaForm.get('telefono')?.invalid && peluqueriaForm.get('telefono')?.touched) {
-                <span class="error-message">
-                    El teléfono es requerido
-                </span>
-                }
+                <input type="tel" id="telefono" formControlName="telefono" required />
             </div>
 
             <div class="form-group">
                 <label for="direccion">Dirección *</label>
-                <input type="text" id="direccion" formControlName="direccion"
-                    [class.error]="peluqueriaForm.get('direccion')?.invalid && peluqueriaForm.get('direccion')?.touched" />
-                @if (peluqueriaForm.get('direccion')?.invalid && peluqueriaForm.get('direccion')?.touched) {
-                <span class="error-message">
-                    La dirección es requerida
-                </span>
-                }
+                <input type="text" id="direccion" formControlName="direccion" required />
             </div>
 
             <div class="form-group">
                 <label for="ciudad">Ciudad *</label>
-                <input type="text" id="ciudad" formControlName="ciudad"
-                    [class.error]="peluqueriaForm.get('ciudad')?.invalid && peluqueriaForm.get('ciudad')?.touched" />
-                @if (peluqueriaForm.get('ciudad')?.invalid && peluqueriaForm.get('ciudad')?.touched) {
-                <span class="error-message">
-                    La ciudad es requerida
-                </span>
-                }
+                <input type="text" id="ciudad" formControlName="ciudad" required />
             </div>
 
+            <div class="form-group">
+                <label for="descripcion">Descripción</label>
+                <textarea id="descripcion" formControlName="descripcion" rows="4"></textarea>
+            </div>
 
             <div class="form-actions">
-                <button type="submit" [disabled]="peluqueriaForm.invalid" class="btn-submit">
+                <button type="submit" class="btn-submit">
                     Guardar Cambios
                 </button>
-                <button type="button" class="btn-cancel" routerLink="/">
+                <button type="button" class="btn-cancel" routerLink="/peluquerias">
                     Cancelar
                 </button>
             </div>
@@ -73,19 +47,13 @@
     }
 
     <!-- Formulario de Categoría -->
-    @if (tipo === 'categoria') {
+    @else if (tipo === 'categoria') {
     <div class="form-wrapper">
         <h2>Modificar Categoría</h2>
         <form [formGroup]="categoriaForm" (ngSubmit)="onSubmitCategoria()">
             <div class="form-group">
                 <label for="nombre-categoria">Nombre *</label>
-                <input type="text" id="nombre-categoria" formControlName="nombre"
-                    [class.error]="categoriaForm.get('nombre')?.invalid && categoriaForm.get('nombre')?.touched" />
-                @if (categoriaForm.get('nombre')?.invalid && categoriaForm.get('nombre')?.touched) {
-                <span class="error-message">
-                    El nombre es requerido
-                </span>
-                }
+                <input type="text" id="nombre-categoria" formControlName="nombre" required />
             </div>
 
             <div class="form-group">
@@ -94,7 +62,36 @@
             </div>
 
             <div class="form-actions">
-                <button type="submit" [disabled]="categoriaForm.invalid" class="btn-submit">
+                <button type="submit" class="btn-submit">
+                    Guardar Cambios
+                </button>
+                <button type="button" class="btn-cancel" routerLink="/categorias">
+                    Cancelar
+                </button>
+            </div>
+        </form>
+    </div>
+    }
+
+
+
+    <!-- Formulario de Usuario -->
+    @else{
+    <div class="form-wrapper">
+        <h2>Modificar Usuario</h2>
+        <form [formGroup]="usuarioForm" (ngSubmit)="onSubmitUsuario()">
+            <div class="form-group">
+                <label for="nombre-usuario">Nombre *</label>
+                <input type="text" id="nombre-usuario" formControlName="nombre" required />
+            </div>
+
+            <div class="form-group">
+                <label for="email-usuario">Email *</label>
+                <input type="email" id="email-usuario" formControlName="email" required />
+            </div>
+
+            <div class="form-actions">
+                <button type="submit" class="btn-submit">
                     Guardar Cambios
                 </button>
                 <button type="button" class="btn-cancel" routerLink="/">
@@ -104,6 +101,7 @@
         </form>
     </div>
     }
+
 
     <!-- Mensaje si no hay tipo especificado -->
     @if (!tipo) {

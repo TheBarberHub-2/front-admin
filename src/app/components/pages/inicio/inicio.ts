@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CPanel } from '../../ui/c-panel/c-panel';
 import { PeluqueriasService } from '../../../services/peluquerias.service';
 import { CategoriasService } from '../../../services/categorias.service';
+import { UsuariosService } from '../../../services/usuarios.service';
 
 @Component({
   selector: 'app-inicio',
@@ -13,10 +14,12 @@ import { CategoriasService } from '../../../services/categorias.service';
 export class Inicio implements OnInit {
   peluqueriasCount: number = 0;
   categoriasCount: number = 0;
+  usuariosCount: number = 0;
 
   constructor(
     private peluqueriasService: PeluqueriasService,
-    private categoriasService: CategoriasService
+    private categoriasService: CategoriasService,
+    private usuariosService: UsuariosService
   ) { }
 
   ngOnInit() {
@@ -26,6 +29,10 @@ export class Inicio implements OnInit {
 
     this.categoriasService.getCategorias().subscribe(data => {
       this.categoriasCount = data.length;
+    });
+
+    this.usuariosService.getUsuarios().subscribe(data => {
+      this.usuariosCount = data.length;
     });
   }
 }

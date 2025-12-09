@@ -1,3 +1,7 @@
 // Utilities Index
 @forward 'functions';
 @forward 'mixins';
+
+body {
+    background-color: var(--bh-color-fondo);
+}

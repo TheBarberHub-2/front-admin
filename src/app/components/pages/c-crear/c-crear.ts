@@ -52,16 +52,20 @@ export class CCrear implements OnInit {
   onSubmitPeluqueria() {
     if (this.peluqueriaForm.valid) {
       console.log('Nueva peluquería a crear:', this.peluqueriaForm.value);
-      // TODO: Implementar petición POST para crear peluquería
-      // this.peluqueriasService.createPeluqueria(this.peluqueriaForm.value).subscribe(...)
+      this.peluqueriasService.crearPeluqueria(this.peluqueriaForm.value).subscribe(() => {
+        this.peluqueriaForm.reset();
+        alert('Peluquería creada correctamente');
+      });
     }
   }
 
   onSubmitCategoria() {
     if (this.categoriaForm.valid) {
       console.log('Nueva categoría a crear:', this.categoriaForm.value);
-      // TODO: Implementar petición POST para crear categoría
-      // this.categoriasService.createCategoria(this.categoriaForm.value).subscribe(...)
+      this.categoriasService.crearCategoria(this.categoriaForm.value).subscribe(() => {
+        this.categoriaForm.reset();
+        alert('Categoría creada correctamente');
+      });
     }
   }
 }

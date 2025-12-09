@@ -1,5 +1,5 @@
-// Categorias Component Styles
-.categorias-page {
+// Usuarios Component Styles
+.usuarios-page {
     background-color: var(--bh-color-fondo);
     min-height: 100vh;
 
@@ -82,25 +82,4 @@
             opacity: 0.8;
         }
     }
-}
-
-// Legacy table styles for backward compatibility
-table {
-    border-collapse: separate;
-    border-spacing: 0 var(--bh-espacio-1);
-}
-
-tr {
-    background-color: var(--bh-color-gris-2);
-    outline: 1px solid var(--bh-color-blanco);
-}
-
-td:first-child {
-    border-top-left-radius: var(--bh-radio-2);
-    border-bottom-left-radius: var(--bh-radio-2);
-}
-
-td:last-child {
-    border-top-right-radius: var(--bh-radio-2);
-    border-bottom-right-radius: var(--bh-radio-2);
 }

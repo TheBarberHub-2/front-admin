@@ -26,34 +26,25 @@ export class PeluqueriasService {
 
         return forkJoin([users$, peluquerias$]).pipe(
             map(([users, peluquerias]) => {
-                console.log('Users received:', users);
-                console.log('Peluquerias received:', peluquerias);
-
                 // Si no hay datos en peluquerias, devolver solo los usuarios
                 if (peluquerias.length === 0) {
-                    console.log('No peluquerias details found, returning users only');
                     return users;
                 }
 
                 // Si hay datos en peluquerias, hacer el merge
                 const merged = users.map(user => {
                     const peluqueriaDetails = peluquerias.find(p => p.usuario_id == user.id);
-                    console.log(`Merging user ${user.id}:`, user);
-                    console.log(`Found peluqueria details:`, peluqueriaDetails);
 
                     if (peluqueriaDetails) {
-                        const result = {
+                        return {
                             ...user,
                             ...peluqueriaDetails
                         };
-                        console.log(`Merged result:`, result);
-                        return result;
                     }
                     // Devolver el usuario incluso si no tiene detalles de peluquería
                     return user;
                 }).filter(item => item !== null);
 
-                console.log('Final merged array:', merged);
                 return merged;
             }),
             catchError(error => {
@@ -61,5 +52,14 @@ export class PeluqueriasService {
                 return of([]);
             })
         );
+    }
+    crearPeluqueria(peluqueria: any): Observable<any> {
+        return this.http.post<any>(`${this.apiUrl}/peluquerias`, peluqueria);
+    }
+    modificarPeluqueria(id: number, peluqueria: any): Observable<any> {
+        return this.http.put<any>(`${this.apiUrl}/peluquerias/${id}`, peluqueria);
+    }
+    eliminarPeluqueria(id: number): Observable<any> {
+        return this.http.delete<any>(`${this.apiUrl}/peluquerias/${id}`);
     }
 }
