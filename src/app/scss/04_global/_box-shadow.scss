@@ -1,0 +1,17 @@
+@use "sass:list";
+@use "../01_utilities/_index.scss" as utilidades;
+
+:root {
+  @for $i from 1 through list.length(utilidades.$box-shadow) {
+    $shadow: list.nth(utilidades.$box-shadow, $i);
+    --bh-box-shadow-#{$i}: #{$shadow};
+  }
+}
+
+@for $i from 1 through list.length(utilidades.$box-shadow) {
+  $shadow: list.nth(utilidades.$box-shadow, $i);
+
+  .bh--box-shadow-#{$i} {
+    box-shadow: var(--bh-box-shadow-#{$i});
+  }
+}

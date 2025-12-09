@@ -1,0 +1,30 @@
+@use "sass:list";
+@use "../01_utilities/_index.scss" as utilidades;
+
+
+:root {
+  @each $nombre, $tonalidades in utilidades.$colores {
+    @for $i from 1 through list.length($tonalidades) {
+      --bs-sys-color-#{$nombre}-#{$i}: #{list.nth($tonalidades, $i)};
+    }
+  }
+}
+
+
+
+@each $nombre, $tonalidades in utilidades.$colores {
+  @for $i from 1 through list.length($tonalidades) {
+    .g--color-#{$nombre}-#{$i} {
+      color: var(--bs-sys-color-#{$nombre}-#{$i});
+    }
+  }
+}
+
+
+@each $nombre, $tonalidades in utilidades.$colores {
+  @for $i from 1 through list.length($tonalidades) {
+    .g--background-color-#{$nombre}-#{$i} {
+      background-color: var(--bs-sys-color-#{$nombre}-#{$i});
+    }
+  }
+}

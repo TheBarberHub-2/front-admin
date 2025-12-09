@@ -1,0 +1,176 @@
+// ======================================
+// LISTAS GENERADAS DESDE VARIABLES BH
+// ======================================
+
+// 🎨 Colores numéricos
+$colores: (
+    'azul': (#03416D, #0257A1, #026BD4, #0676FE, #398BFE, #6CA2FE, #9FBFFE, #CDDBFE, #FFFFFF),
+    'gris': (#000000, #171717, #333, #4a4a4a, #5E5E5E, #757575, #A6A6A6, #e0e0e0, #fff),
+    'rojo': (#190501, #500A01, #880D01, #C10701, #F90101, #FE3E34, #FE796D, #FEB0A5, #FEE2DC),
+    'blanco': (#FFFFFF),
+    'amarillo': (#504002, #887402, #BBA502, #F4E301, #FEF72A, #FCFE62, #F9FE95, #F9FECD, #FFFFFF),
+    'naranja':(#190801, #521E05, #84370B, #BA5812, #E7781D, #EEA153, #F5C084, #FBE1BC, #FFF9F0),
+    'verde': (#081901, #144804, #1E7109, #259E10, #2AC615, #32E925, #51F04C, #78F77A, #A1FDA5),
+    'morado': (#0F0119, #34044D, #570A7B, #8211AC, #AC17D9, #CC3CEC, #DE68F3, #F09AF9, #FAC8FE),
+    'negro': (#000000),
+    'rosa': (#190115, #49083B, #791560, #A2257D, #CD3299, #DA5DAA, #EA8AC2, #F7B6D8, #FEE6F2)
+);
+
+// 📏 Espaciados (base 4px)
+$gaps: (
+    0px,
+    4px,
+    8px,
+    12px,
+    16px,
+    20px,
+    24px,
+    28px,
+    32px,
+    36px,
+    40px,
+    44px,
+    48px,
+    64px
+);
+
+// 📏 Margenes
+$margin: (
+    0px,
+    4px,
+    8px,
+    12px,
+    16px,
+    20px,
+    24px,
+    28px,
+    32px,
+    36px,
+    40px,
+    44px,
+    48px,
+    64px
+);
+
+$margin-top: (
+    0px,
+    4px,
+    8px,
+    12px,
+    16px,
+    20px,
+    24px,
+    28px,
+    32px,
+    36px,
+    40px,
+    44px,
+    48px,
+    64px
+);
+
+$margin-bottom: (
+    0px,
+    4px,
+    8px,
+    12px,
+    16px,
+    20px,
+    24px,
+    28px,
+    32px,
+    36px,
+    40px,
+    44px,
+    48px,
+    64px
+);
+
+// 📏 Padding
+$padding: (
+    0px,
+    4px,
+    8px,
+    12px,
+    16px,
+    20px,
+    24px,
+    28px,
+    32px,
+    36px,
+    40px,
+    44px,
+    48px,
+    64px
+);
+
+// 🔲 Radio de borde
+$border-radius: (
+    4px,
+    8px,
+    12px,
+    16px,
+    20px,
+    9999px
+);
+
+// 🌑 Sombras
+$sombras: (
+    0 2px 4px rgba(0, 0, 0, 0.1),
+    0 4px 8px rgba(0, 0, 0, 0.2),
+    0 4px 12px rgba(0, 0, 0, 0.3),
+    0 8px 24px rgba(0, 0, 0, 0.4)
+);
+
+// ✒️ Familias tipográficas
+$font-families: (
+    "primaria": (system-ui, -apple-system, sans-serif),
+    "secundaria": ('Inter', sans-serif)
+);
+
+// 🔤 Tamaños de texto
+$font-sizes: (
+    12px,
+    14px,
+    16px,
+    18px,
+    20px,
+    24px,
+    32px,
+    48px,
+    64px
+);
+
+// 🔡 Pesos de fuente
+$font-weights: (
+    300,
+    400,
+    500,
+    600,
+    700
+);
+
+// 📏 Alturas de línea
+$line-height: (
+    1,
+    1.5,
+    1.75
+);
+
+// 🔁 Transiciones
+$transiciones: (
+    0.15s ease,
+    0.3s ease,
+    0.5s ease
+);
+
+// 🧱 Z-index
+$zindex: (
+    1000,
+    1020,
+    1030,
+    1040,
+    1050,
+    1060,
+    1070
+);

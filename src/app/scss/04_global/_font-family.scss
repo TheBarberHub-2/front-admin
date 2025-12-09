@@ -1,0 +1,8 @@
+@use "../01_utilities/index" as *;
+@use "sass:map";
+
+:root {
+    @each $name, $value in $font-families {
+        --bs-sys-font-family-#{$name}: #{$value};
+    }
+}

@@ -1,0 +1,9 @@
+@use "../01_utilities/index" as *;
+@use "sass:list";
+
+:root {
+    @for $i from 1 through list.length($font-weight) {
+        $valor: list.nth($font-weight, $i);
+        --bs-sys-font-weight-#{$i}: #{$valor};
+    }
+}
