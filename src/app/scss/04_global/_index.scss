@@ -1,6 +1,3 @@
-// Global Index
-@forward './variables';
-@forward './utilities';
 @forward "./_colors.scss";
 @forward "./_font-size.scss";
 @forward "./_padding.scss";
@@ -12,8 +9,6 @@
 @forward "./_border-radius.scss";
 @forward "./_font-family.scss";
 @forward "./_font-weight.scss";
-@forward "./_forms.scss";
-@forward "./_lists.scss";
 @forward "./_transiciones.scss";
 @forward "./_zindex.scss";
 @forward "./_line-height.scss";

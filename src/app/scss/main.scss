@@ -1,6 +1,3 @@
-// Main SCSS Entry Point
-// Import all partials in the correct order
-
 @use '01_utilities' as utilities;
 @use '02_base' as base;
 @use '03_components' as components;

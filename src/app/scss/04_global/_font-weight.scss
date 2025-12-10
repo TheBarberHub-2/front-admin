@@ -1,5 +1,5 @@
-@use "../01_utilities/index" as *;
 @use "sass:list";
+@use "../01_utilities/_index.scss" as utilidades;
 
 :root {
     @for $i from 1 through list.length(utilidades.$font-weights) {
@@ -7,8 +7,8 @@
         --bh-fw-#{$i}: #{$valor};
     }
 
-    @for $i from 1 through list.length(utilidades.$font-weight-lista) {
-        $font-size: list.nth(utilidades.$font-weight-lista, $i);
+    @for $i from 1 through list.length(utilidades.$font-weights) {
+        $font-size: list.nth(utilidades.$font-weights, $i);
 
         .bh--fw-#{$i } {
             font-size: var(--bh-fw-#{$i});

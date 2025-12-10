@@ -2,12 +2,12 @@
 @use "sass:list";
 
 :root {
-    @for $i from 1 through list.length($gap) {
-        --bh-gap-#{$i}: #{list.nth($gap, $i)};
+    @for $i from 1 through list.length($gaps) {
+        --bh-gap-#{$i}: #{list.nth($gaps, $i)};
     }
 }
 
-@for $i from 1 through list.length($gap) {
+@for $i from 1 through list.length($gaps) {
     .bh--gap-#{$i} {
         gap: var(--bh-gap-#{$i}) !important;
     }
