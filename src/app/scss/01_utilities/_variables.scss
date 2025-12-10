@@ -52,40 +52,6 @@ $margin: (
     64px
 );
 
-$margin-top: (
-    0px,
-    4px,
-    8px,
-    12px,
-    16px,
-    20px,
-    24px,
-    28px,
-    32px,
-    36px,
-    40px,
-    44px,
-    48px,
-    64px
-);
-
-$margin-bottom: (
-    0px,
-    4px,
-    8px,
-    12px,
-    16px,
-    20px,
-    24px,
-    28px,
-    32px,
-    36px,
-    40px,
-    44px,
-    48px,
-    64px
-);
-
 // 📏 Padding
 $padding: (
     0px,
@@ -124,8 +90,11 @@ $sombras: (
 
 // ✒️ Familias tipográficas
 $font-families: (
-    "primaria": (system-ui, -apple-system, sans-serif),
-    "secundaria": ('Inter', sans-serif)
+    system-ui,
+    -apple-system,
+    sans-serif,
+    'Inter',
+    sans-serif
 );
 
 // 🔤 Tamaños de texto
@@ -149,6 +118,34 @@ $font-weights: (
     600,
     700
 );
+
+// anchos
+$widths: (
+    auto,
+    100%,
+    100vh,
+    50%,
+    25%,
+    20%,
+    16%,
+    12%,
+    8%,
+    4%
+);
+
+// alturas
+$heights: (
+    auto,
+    100%,
+    50%,
+    25%,
+    20%,
+    16%,
+    12%,
+    8%,
+    4%
+);
+
 
 // 📏 Alturas de línea
 $line-height: (

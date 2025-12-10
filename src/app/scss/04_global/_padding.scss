@@ -4,14 +4,30 @@
 :root {
   @for $i from 1 through list.length(utilidades.$paddings) {
     $padding: list.nth(utilidades.$paddings, $i);
-    --bs-sys-padding-#{$i}: #{$padding};
+    --bh-padding-#{$i}: #{$padding};
   }
 }
 
 @for $i from 1 through list.length(utilidades.$paddings) {
   $padding: list.nth(utilidades.$paddings, $i);
 
-  .g--padding-#{$i} {
-    padding: var(--bs-sys-padding-#{$i});
+  .bh--p-#{$i} {
+    padding: var(--bh-padding-#{$i});
+  }
+
+  .bh--pt-#{$i} {
+    padding-top: var(--bh-padding-#{$i});
+  }
+
+  .bh--pb-#{$i} {
+    padding-bottom: var(--bh-padding-#{$i});
+  }
+
+  .bh--pl-#{$i} {
+    padding-left: var(--bh-padding-#{$i});
+  }
+
+  .bh--pr-#{$i} {
+    padding-right: var(--bh-padding-#{$i});
   }
 }

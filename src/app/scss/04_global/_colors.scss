@@ -5,7 +5,7 @@
 :root {
   @each $nombre, $tonalidades in utilidades.$colores {
     @for $i from 1 through list.length($tonalidades) {
-      --bs-sys-color-#{$nombre}-#{$i}: #{list.nth($tonalidades, $i)};
+      --bh-color-#{$nombre}-#{$i}: #{list.nth($tonalidades, $i)};
     }
   }
 }
@@ -14,8 +14,8 @@
 
 @each $nombre, $tonalidades in utilidades.$colores {
   @for $i from 1 through list.length($tonalidades) {
-    .g--color-#{$nombre}-#{$i} {
-      color: var(--bs-sys-color-#{$nombre}-#{$i});
+    .bh--color-#{$nombre}-#{$i} {
+      color: var(--bh-color-#{$nombre}-#{$i});
     }
   }
 }
@@ -23,8 +23,40 @@
 
 @each $nombre, $tonalidades in utilidades.$colores {
   @for $i from 1 through list.length($tonalidades) {
-    .g--background-color-#{$nombre}-#{$i} {
-      background-color: var(--bs-sys-color-#{$nombre}-#{$i});
+    .bh--color-fondo-#{$nombre}-#{$i} {
+      background-color: var(--bh-color-#{$nombre}-#{$i});
+    }
+  }
+}
+
+@each $nombre, $tonalidades in utilidades.$colores {
+  @for $i from 1 through list.length($tonalidades) {
+    .bh--color-superficie-#{$nombre}-#{$i} {
+      background-color: var(--bh-color-#{$nombre}-#{$i});
+    }
+  }
+}
+
+@each $nombre, $tonalidades in utilidades.$colores {
+  @for $i from 1 through list.length($tonalidades) {
+    .bh--color-texto-primario#{$nombre}-#{$i} {
+      color: var(--bh-color-#{$nombre}-#{$i});
+    }
+  }
+}
+
+@each $nombre, $tonalidades in utilidades.$colores {
+  @for $i from 1 through list.length($tonalidades) {
+    .bh--color-texto-secundario#{$nombre}-#{$i} {
+      color: var(--bh-color-#{$nombre}-#{$i});
+    }
+  }
+}
+
+@each $nombre, $tonalidades in utilidades.$colores {
+  @for $i from 1 through list.length($tonalidades) {
+    .bh--color-acento#{$nombre}-#{$i} {
+      color: var(--bh-color-#{$nombre}-#{$i});
     }
   }
 }

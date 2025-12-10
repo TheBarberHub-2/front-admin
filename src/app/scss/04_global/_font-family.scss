@@ -3,6 +3,16 @@
 
 :root {
     @each $name, $value in $font-families {
-        --bs-sys-font-family-#{$name}: #{$value};
+        --bh-font-family-#{$name}: #{$value};
+    }
+}
+
+@each $name, $value in $font-families {
+    .bh--fuente-primaria-#{$name}-#{$value} {
+        font-family: var(--bh-font-family-#{$name}-#{$value});
+    }
+
+    .bh--fuente-secundaria-#{$name}-#{$value} {
+        font-family: var(--bh-font-family-#{$name}-#{$value});
     }
 }
