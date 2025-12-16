@@ -1,20 +1,26 @@
-// Global Forms Component Styles
-// Reusable form classes using BEM methodology
-
 .bh-form {
-    width: 100%;
-    max-width: 600px;
+    --bh-form-color-fondo: var(--bh-color-gris-4);
+    --bh-form-color-superficie: var(--bh-color-gris-9);
+    --bh-form-color-texto-primario: var(--bh-color-gris-9);
+    --bh-form-color-texto-secundario: var(--bh-color-gris-1);
+    --bh-form-height: var(--bh-altura-12);
+    --bh-form-width: var(--bh-w-6);
+    --bh-form-color-acento: var(--bh-color-gris-9);
+
+
+    width: var(--bh-w-6);
     margin: 0 auto;
 
     &__wrapper {
-        background-color: var(--bh-color-superficie);
+        background-color: var(--bh-color-gris-1);
         padding: var(--bh-espacio-6);
         border-radius: var(--bh-radio-2);
         box-shadow: var(--bh-sombra-2);
+        color: var(--bh-color-gris-9);
     }
 
     &__title {
-        color: var(--bh-color-texto-primario);
+        color: var(--bh-color-gris-9);
         font-size: var(--bh-texto-6);
         font-weight: var(--bh-peso-4);
         margin-bottom: var(--bh-espacio-6);
@@ -28,7 +34,7 @@
     }
 
     &__label {
-        color: var(--bh-color-texto-primario);
+        color: var(--bh-form-color-texto-primario);
         font-size: var(--bh-texto-3);
         font-weight: var(--bh-peso-3);
         margin-bottom: var(--bh-espacio-2);
@@ -40,21 +46,21 @@
     &__select {
         width: 100%;
         padding: var(--bh-espacio-3);
-        background-color: var(--bh-color-gris-2);
-        color: var(--bh-color-texto-primario);
-        border: 1px solid var(--bh-color-gris-3);
-        border-radius: var(--bh-radio-1);
+        background-color: var(--bh-color-gris-9);
+        color: var(--bh-color-gris-1);
+        border: 1px solid var(--bh-form-color-gris-9);
+        border-radius: var(--bh-radio-2);
         font-size: var(--bh-texto-3);
         font-family: var(--bh-fuente-primaria);
         outline: none;
         transition: border-color var(--bh-transicion-1);
 
         &:focus {
-            border-color: var(--bh-color-acento);
+            border-color: var(--bh-form-color-acento);
         }
 
         &::placeholder {
-            color: var(--bh-color-gris-3);
+            color: var(--bh-form-color-gris-3);
         }
 
         &.error {

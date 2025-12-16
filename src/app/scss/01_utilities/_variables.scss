@@ -72,14 +72,15 @@ $paddings: (
 
 // 🔲 Radio de borde
 $border-radius: (
-    4,
-    8,
-    12,
-    16,
-    20,
-    25,
-    50,
-    100
+    4px,
+    8px,
+    12px,
+    16px,
+    20px,
+    25px,
+    50px,
+    100px,
+    100%
 );
 
 // 🌑 Sombras
@@ -124,28 +125,31 @@ $font-weights: (
 // anchos
 $widths: (
     auto,
-    100%,
-    100vh,
-    50%,
-    25%,
-    20%,
-    16%,
-    12%,
-    8%,
-    4%
+    100px,
+    200px,
+    250px,
+    400px,
+    500px,
+    700px,
+    1000px,
+    100vw,
+    100%
 );
 
 // alturas
 $heights: (
     auto,
-    100%,
-    50%,
-    25%,
-    20%,
-    16%,
-    12%,
-    8%,
-    4%
+    15vh,
+    25vh,
+    35vh,
+    45vh,
+    50vh,
+    55vh,
+    65vh,
+    75vh,
+    85vh,
+    95vh,
+    100vh,
 );
 
 

@@ -1,12 +1,10 @@
-// c-header - Componente Header
-// Siguiendo metodología BEM y usando variables globales
-
 .c-header {
 
     --c-header-color-fondo: var(--bh-color-gris-4);
     --c-header-color-superficie: var(--bh-color-gris-1);
     --c-header-color-texto-primario: var(--bh-color-gris-9);
     --c-header-color-texto-secundario: var(--bh-color-gris-1);
+    --c-header-color-acento: var(--bh-color-gris-1);
 
     display: flex;
     align-items: center;
@@ -45,7 +43,7 @@
         &--highlight {
             background-color: var(--bh-color-gris-3);
             padding: var(--bh-espacio-3) var(--bh-espacio-5);
-            border-radius: var(--bh-radio-8);
+            border-radius: var(--bh-radio-3);
         }
     }
 
