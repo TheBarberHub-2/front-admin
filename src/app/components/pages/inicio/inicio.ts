@@ -20,19 +20,19 @@ export class Inicio implements OnInit {
     private peluqueriasService: PeluqueriasService,
     private categoriasService: CategoriasService,
     private usuariosService: UsuariosService
-  ) { }
+  ) {}
 
   ngOnInit() {
-    this.peluqueriasService.getPeluquerias().subscribe(data => {
-      this.peluqueriasCount = data.length;
+    this.peluqueriasService.getPeluquerias().subscribe((data) => {
+      this.peluqueriasCount = data.totalElements;
     });
 
-    this.categoriasService.getCategorias().subscribe(data => {
-      this.categoriasCount = data.length;
+    this.categoriasService.getCategorias().subscribe((data) => {
+      this.categoriasCount = data.totalElements;
     });
 
-    this.usuariosService.getUsuarios().subscribe(data => {
-      this.usuariosCount = data.length;
+    this.usuariosService.getUsuarios().subscribe((data) => {
+      this.usuariosCount = data.totalElements;
     });
   }
 }

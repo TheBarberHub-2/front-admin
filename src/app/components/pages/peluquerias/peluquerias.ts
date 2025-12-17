@@ -13,11 +13,11 @@ import { PeluqueriasService } from '../../../services/peluquerias.service';
 export class Peluquerias implements OnInit {
   peluquerias: any[] = [];
 
-  constructor(private peluqueriasService: PeluqueriasService) { }
+  constructor(private peluqueriasService: PeluqueriasService) {}
 
   ngOnInit() {
-    this.peluqueriasService.getPeluquerias().subscribe(data => {
-      this.peluquerias = data;
+    this.peluqueriasService.getPeluquerias().subscribe((data) => {
+      this.peluquerias = data.data;
     });
   }
 }

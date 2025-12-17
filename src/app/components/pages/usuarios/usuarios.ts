@@ -4,20 +4,20 @@ import { RouterLink } from '@angular/router';
 import { UsuariosService } from '../../../services/usuarios.service';
 
 @Component({
-    selector: 'app-usuarios',
-    standalone: true,
-    imports: [CommonModule, RouterLink],
-    templateUrl: './usuarios.html',
-    styleUrl: './usuarios.scss',
+  selector: 'app-usuarios',
+  standalone: true,
+  imports: [CommonModule, RouterLink],
+  templateUrl: './usuarios.html',
+  styleUrl: './usuarios.scss',
 })
 export class Usuarios implements OnInit {
-    usuarios: any[] = [];
+  usuarios: any[] = [];
 
-    constructor(private usuariosService: UsuariosService) { }
+  constructor(private usuariosService: UsuariosService) {}
 
-    ngOnInit() {
-        this.usuariosService.getUsuarios().subscribe(data => {
-            this.usuarios = data;
-        });
-    }
+  ngOnInit() {
+    this.usuariosService.getUsuarios().subscribe((data) => {
+      this.usuarios = data.data;
+    });
+  }
 }
