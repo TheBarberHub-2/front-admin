@@ -16,7 +16,9 @@
 
     &__table {
         border-collapse: separate;
-        border-spacing: 0 var(--bh-espacio-1);
+        border-spacing: 0 var(--bh-espacio-2);
+        width: 100%;
+        padding-top: var(--bh-p-4);
     }
 
     &__table th {
@@ -27,12 +29,13 @@
     }
 
     &__row {
-        background-color: var(--bh-color-gris-8);
+        background-color: var(--bh-color-gris-1);
+        color: var(--bh-color-gris-9);
         transition: background-color var(--bh-transicion-1);
-        outline: 1px solid var(--bh-color-gris-1);
+        outline: 1px solid var(--bh-color-gris-9);
 
         &:hover {
-            background-color: var(--bh-color-gris-9);
+            background-color: var(--bh-color-gris-3);
         }
 
         td:first-child {
