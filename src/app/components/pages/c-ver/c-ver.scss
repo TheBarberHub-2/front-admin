@@ -1,6 +1,6 @@
 .c-ver-container {
-    --c-mod-container-height: var(--bh-altura-1);
-    --c-mod-container-width: var(--bh-w-13);
+    --c-mod-container-height: var(--bh-altura-12);
+    --c-mod-container-width: var(--bh-w-9);
     --c-mod-container-color-fondo: var(--bh-color-gris-4);
     --c-mod-container-color-superficie: var(--bh-color-gris-1);
     --c-mod-container-color-texto-primario: var(--bh-color-texto-gris-9);
@@ -14,16 +14,16 @@
     padding: var(--bh-p-4);
 
     .details-wrapper {
-        background: var(--c-mod-container-color-superficie);
+        background: var(--bh-color-gris-1);
         padding: var(--bh-p-6);
         border-radius: var(--bh-radio-2);
         box-shadow: var(--bh-sombra-1);
 
         h2 {
             margin-bottom: var(--bh-p-4);
-            color: var(--c-mod-container-color-texto-primario);
-            font-size: var(--bh-texto-2);
-            border-bottom: 2px solid var(--bh-color-primario);
+            color: var(--bh-color-gris-9);
+            font-size: var(--bh-texto-7);
+            border-bottom: 2px solid var(--bh-color-gris-3);
             padding-bottom: var(--bh-p-2);
         }
     }
@@ -42,6 +42,7 @@
             display: flex;
             flex-direction: column;
             gap: var(--bh-p-1);
+            color: var(--bh-color-gris-9);
 
             &.full-width {
                 grid-column: 1 / -1;
