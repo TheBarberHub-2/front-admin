@@ -11,7 +11,7 @@ export class UsuariosService {
     constructor(private http: HttpClient) { }
 
     getUsuarios(): Observable<any[]> {
-        return this.http.get<any[]>(`${this.apiUrl}/usuarios?rol=Cliente`).pipe(
+        return this.http.get<any[]>(`${this.apiUrl}/usuarios`).pipe(
             catchError(error => {
                 console.error('Error fetching usuarios:', error);
                 return of([]);
@@ -20,6 +20,9 @@ export class UsuariosService {
     }
     crearUsuario(usuario: any): Observable<any> {
         return this.http.post<any>(`${this.apiUrl}/usuarios`, usuario);
+    }
+    verUsuario(id: number): Observable<any> {
+        return this.http.get<any>(`${this.apiUrl}/usuarios/${id}`);
     }
     modificarUsuario(id: number, usuario: any): Observable<any> {
         return this.http.put<any>(`${this.apiUrl}/usuarios/${id}`, usuario);

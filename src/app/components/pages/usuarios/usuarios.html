@@ -11,20 +11,26 @@
     <table class="usuarios-page__table bh-w-full bh-text-left">
         <thead>
             <tr>
-                <th class="bh-p-3 bh-texto-primario">Nombre</th>
-                <th class="bh-p-3 bh-texto-primario">Email</th>
-                <th class="bh-p-3 bh-texto-primario">Rol</th>
-                <th class="bh-p-3"></th>
+                <th class="bh--p-3 bh-texto-primario">Nombre</th>
+                <th class="bh--p-3 bh-texto-primario">Email</th>
+                <th class="bh--p-3 bh-texto-primario">Rol</th>
+                <th class="bh--p-3 bh-texto-primario">Acciones</th>
+                <th class="bh--p-3 bh-texto-primario"></th>
+                <th class="bh--p-3 bh-texto-primario"></th>
             </tr>
         </thead>
         <tbody>
             @for (usuario of usuarios; track usuario.id) {
             <tr class="usuarios-page__row bh-fondo-gris">
-                <td class="bh-p-3 bh-texto-primario">{{usuario.nombre}}</td>
-                <td class="bh-p-3 bh-texto-primario">{{usuario.email}}</td>
-                <td class="bh-p-3 bh-texto-primario">{{usuario.rol}}</td>
-                <td class="bh-p-3"><a [routerLink]="['/mod']" [queryParams]="{tipo: 'usuario', id: usuario.id}"
+                <td class="bh--p-3 bh-texto-primario">{{usuario.nombre}}</td>
+                <td class="bh--p-3 bh-texto-primario">{{usuario.email}}</td>
+                <td class="bh--p-3 bh-texto-primario">{{usuario.rol}}</td>
+                <td class="bh--p-3"><a [routerLink]="['/mod']" [queryParams]="{tipo: 'usuario', id: usuario.id}"
                         class="usuarios-page__link bh-cursor-pointer bh-texto-acento">Modificar</a></td>
+                <td class="bh--p-3"><a [routerLink]="['/eliminar']" [queryParams]="{tipo: 'usuario', id: usuario.id}"
+                        class="usuarios-page__link bh-cursor-pointer bh-texto-acento">Eliminar</a></td>
+                <td class="bh--p-3"><a [routerLink]="['/ver']" [queryParams]="{tipo: 'usuario', id: usuario.id}"
+                        class="usuarios-page__link bh-cursor-pointer bh-texto-acento">Ver</a></td>
             </tr>
             }
         </tbody>

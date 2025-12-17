@@ -6,6 +6,8 @@ import { Categorias } from './components/pages/categorias/categorias';
 import { Usuarios } from './components/pages/usuarios/usuarios';
 import { CMod } from './components/pages/c-mod/c-mod';
 import { CCrear } from './components/pages/c-crear/c-crear';
+import { CEliminar } from './components/pages/c-eliminar/c-eliminar';
+import { CVer } from './components/pages/c-ver/c-ver';
 import { AuthGuard } from './services/Auth.guard';
 
 export const routes: Routes = [
@@ -40,6 +42,14 @@ export const routes: Routes = [
     {
         path: 'mod',
         component: CMod,
+    },
+    {
+        path: 'eliminar',
+        component: CEliminar,
+    },
+    {
+        path: 'ver',
+        component: CVer,
     },
     {
         path: 'crear',
