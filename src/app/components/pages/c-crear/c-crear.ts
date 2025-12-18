@@ -42,8 +42,8 @@ export class CCrear implements OnInit {
     this.route.queryParams.subscribe((params) => {
       this.tipo = params['tipo'];
     });
-    this.usuarioService.getUsuarios().subscribe((data) => {
-      this.usuarios = data.data;
+    this.usuarioService.getAvailable().subscribe((data) => {
+      this.usuarios = data;
     });
     this.peluqueriasService.getPeluquerias().subscribe((data) => {
       this.peluquerias = data.data;

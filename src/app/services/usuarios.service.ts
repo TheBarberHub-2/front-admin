@@ -15,6 +15,9 @@ export class UsuariosService {
   getUsuarios(): Observable<Page<Usuario>> {
     return this.http.get<Page<Usuario>>(this.apiUrl);
   }
+  getAvailable(): Observable<any> {
+    return this.http.get<any>(`${this.apiUrl}/available`);
+  }
   crearUsuario(usuario: any): Observable<any> {
     return this.http.post<any>(`${this.apiUrl}`, usuario);
   }
