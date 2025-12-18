@@ -1,24 +1,33 @@
 import { Component, OnInit } from '@angular/core';
-import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { AuthService } from '../../../services/Auth.Service';
+import {
+  ReactiveFormsModule,
+  FormBuilder,
+  FormGroup,
+  Validators,
+  FormsModule,
+} from '@angular/forms';
 import { Router } from '@angular/router';
+import { LogIn } from '../../../models/login';
+import { LoginService } from '../../../services/login.service';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-c-login',
   standalone: true,
-  imports: [ReactiveFormsModule],
+  imports: [ReactiveFormsModule, FormsModule, CommonModule],
   templateUrl: './c-login.html',
   styleUrl: './c-login.scss',
 })
 export class CLogin implements OnInit {
   loginForm!: FormGroup;
-  cargando: boolean = false;
+  login: LogIn = { email: '', contrasenya: '' };
+  error: string = '';
 
   constructor(
     private fb: FormBuilder,
-    private authService: AuthService,
+    private loginService: LoginService,
     private router: Router
-  ) { }
+  ) {}
 
   ngOnInit() {
     this.initForms();
@@ -27,34 +36,19 @@ export class CLogin implements OnInit {
   initForms() {
     this.loginForm = this.fb.group({
       usuario: ['', Validators.required],
-      contraseña: ['', Validators.required]
+      contraseña: ['', Validators.required],
     });
   }
 
   onSubmitLogin() {
-    if (this.loginForm.invalid) {
-      return;
-    }
-
-    this.cargando = true;
-
-    const credenciales = {
-      usuario: this.loginForm.get('usuario')?.value,
-      password: this.loginForm.get('contraseña')?.value
-    };
-
-    this.authService.login(credenciales).subscribe({
-      next: (res) => {
-        // res debe contener .token (Spring Boot devuelve esto)
-        this.authService.setToken(res.token);
-        this.cargando = false;
+    this.loginService.logIn(this.login).subscribe({
+      next: () => {
+        this.error = '';
         this.router.navigate(['/inicio']);
       },
       error: (err) => {
-        this.cargando = false;
-        console.error('Error al iniciar sesión:', err);
-        alert('Usuario o contraseña incorrectos');
-      }
+        this.error = err.error?.message;
+      },
     });
   }
 }

@@ -25,10 +25,10 @@ export class CMod implements OnInit {
     private peluqueriasService: PeluqueriasService,
     private categoriasService: CategoriasService,
     private usuariosService: UsuariosService
-  ) { }
+  ) {}
 
   ngOnInit() {
-    this.route.queryParams.subscribe(params => {
+    this.route.queryParams.subscribe((params) => {
       this.tipo = params['tipo'];
       this.id = params['id'];
 
@@ -50,9 +50,9 @@ export class CMod implements OnInit {
       email: [''],
     });
 
-    this.usuariosService.getUsuarios().subscribe(usuarios => {
+    /*this.usuariosService.getUsuarios().subscribe((usuarios) => {
       console.log('Usuarios obtenidos:', usuarios);
-      const usuario = usuarios.find(u => u.id == id);
+      const usuario = usuarios.find((u) => u.id == id);
       console.log('Usuario encontrado:', usuario);
 
       if (usuario) {
@@ -62,9 +62,8 @@ export class CMod implements OnInit {
         });
         console.log('Formulario actualizado con:', this.usuarioForm.value);
       }
-    });
+    });*/
   }
-
 
   loadPeluqueria(id: string) {
     this.peluqueriaForm = this.fb.group({
@@ -73,10 +72,10 @@ export class CMod implements OnInit {
       telefono: [''],
       direccion: [''],
       ciudad: [''],
-      descripcion: ['']
+      descripcion: [''],
     });
 
-    this.peluqueriasService.getPeluquerias().subscribe(peluquerias => {
+    /*this.peluqueriasService.getPeluquerias().subscribe(peluquerias => {
       const peluqueria = peluquerias.find(p => p.id == id || p.usuario_id == id);
       if (peluqueria) {
         this.peluqueriaForm.patchValue({
@@ -88,24 +87,24 @@ export class CMod implements OnInit {
           descripcion: peluqueria.descripcion || ''
         });
       }
-    });
+    });*/
   }
 
   loadCategoria(id: string) {
     this.categoriaForm = this.fb.group({
       nombre: [''],
-      descripcion: ['']
+      descripcion: [''],
     });
 
-    this.categoriasService.getCategorias().subscribe(categorias => {
-      const categoria = categorias.find(c => c.id == id);
+    /*this.categoriasService.getCategorias().subscribe((categorias) => {
+      const categoria = categorias.find((c) => c.id == id);
       if (categoria) {
         this.categoriaForm.patchValue({
           nombre: categoria.nombre,
-          descripcion: categoria.descripcion || ''
+          descripcion: categoria.descripcion || '',
         });
       }
-    });
+    });*/
   }
 
   onSubmitPeluqueria() {
