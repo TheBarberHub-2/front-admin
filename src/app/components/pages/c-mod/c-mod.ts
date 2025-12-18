@@ -29,7 +29,7 @@ export class CMod implements OnInit {
     private usuariosService: UsuariosService,
     private productosService: ProductosService,
     private router: Router
-  ) { }
+  ) {}
 
   ngOnInit() {
     this.peluqueriaForm = this.fb.group({
@@ -54,8 +54,7 @@ export class CMod implements OnInit {
     this.productoForm = this.fb.group({
       nombre: [''],
       precio: [''],
-      stock: [''],
-      categoria_id: [''],
+      duracion: [''],
     });
 
     this.route.queryParams.subscribe((params) => {
@@ -127,8 +126,7 @@ export class CMod implements OnInit {
           this.productoForm.patchValue({
             nombre: producto.nombre,
             precio: producto.precio,
-            stock: producto.stock,
-            categoria_id: producto.categoria_id,
+            duracion: producto.duracion,
           });
         }
       },
@@ -166,5 +164,4 @@ export class CMod implements OnInit {
     alert('Producto modificado correctamente');
     this.router.navigate(['/productos']);
   }
-
 }
