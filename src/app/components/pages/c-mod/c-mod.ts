@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { ReactiveFormsModule, FormBuilder, FormGroup, FormControl } from '@angular/forms';
 import { PeluqueriasService } from '../../../services/peluquerias.service';
 import { CategoriasService } from '../../../services/categorias.service';

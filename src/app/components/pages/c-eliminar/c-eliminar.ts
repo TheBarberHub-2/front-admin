@@ -4,6 +4,7 @@ import { PeluqueriasService } from '../../../services/peluquerias.service';
 import { CategoriasService } from '../../../services/categorias.service';
 import { UsuariosService } from '../../../services/usuarios.service';
 import { CommonModule } from '@angular/common';
+import { ProductosService } from '../../../services/productos.service';
 
 @Component({
   selector: 'app-c-eliminar',
@@ -25,72 +26,39 @@ export class CEliminar implements OnInit {
     private router: Router,
     private peluqueriasService: PeluqueriasService,
     private categoriasService: CategoriasService,
-    private usuariosService: UsuariosService
+    private usuariosService: UsuariosService,
+    private productoService: ProductosService
   ) {}
 
   ngOnInit() {
     this.route.queryParams.subscribe((params) => {
       this.tipo = params['tipo'];
       this.id = params['id'];
-
-      /*if (
-        (this.tipo === 'peluqueria' && this.id) {
-        this.loadPeluqueria(String(this.id));
-      } else if  this.tipo === 'categoria' &&
-        this.id
-      ) {
-        this.loadCategoria(String(this.id));
-      } else if (this.tipo === 'usuario' && this.id) {
-        this.loadUsuario(Number(this.id));
-      }*/
     });
   }
-
-  /*loadUsuario(id: number) {
-    this.usuariosService.getUsuarios().subscribe((usuarios) => {
-      const usuario = usuarios.find((u) => u.id == id);
-      if (usuario) {
-        this.itemNombre = usuario.nombre;
-        this.itemDetalles = usuario.email;
-      }
-    });
-  }*/
-
-  /*loadPeluqueria(id: string) {
-        this.peluqueriasService.getPeluquerias().subscribe(peluquerias => {
-            const peluqueria = peluquerias.find(p => p.id == id || p.usuario_id == id);
-            if (peluqueria) {
-                this.itemNombre = peluqueria.nombre;
-                this.itemDetalles = `${peluqueria.direccion}, ${peluqueria.municipio}`;
-            }
-        });
-    }*/
-
-  /*loadCategoria(id: string) {
-    this.categoriasService.getCategorias().subscribe((categorias) => {
-      const categoria = categorias.find((c) => c.id == id);
-      if (categoria) {
-        this.itemNombre = categoria.nombre;
-        this.itemDetalles = categoria.descripcion || '';
-      }
-    });
-  }*/
 
   eliminar() {
     if (!this.id) return;
 
     if (this.tipo === 'peluqueria') {
-      // Logic to delete peluqueria (needs service method)
-      console.log('Eliminar peluqueria', this.id);
-      // this.peluqueriasService.eliminarPeluqueria(this.id).subscribe(...)
+      this.peluqueriasService.eliminarPeluqueria(Number(this.id)).subscribe(() => {
+        console.log('Peluquería eliminada');
+        this.router.navigate(['/peluquerias']);
+      });
     } else if (this.tipo === 'categoria') {
-      // Logic to delete categoria (needs service method)
-      console.log('Eliminar categoria', this.id);
-      // this.categoriasService.eliminarCategoria(this.id).subscribe(...)
+      this.categoriasService.eliminarCategoria(Number(this.id)).subscribe(() => {
+        console.log('Categoría eliminada');
+        this.router.navigate(['/categorias']);
+      });
     } else if (this.tipo === 'usuario') {
       this.usuariosService.eliminarUsuario(Number(this.id)).subscribe(() => {
         console.log('Usuario eliminado');
         this.router.navigate(['/usuarios']);
+      });
+    } else if (this.tipo === 'productos') {
+      this.productoService.eliminarProducto(Number(this.id)).subscribe(() => {
+        console.log('Producto eliminado');
+        this.router.navigate(['/productos']);
       });
     }
   }
