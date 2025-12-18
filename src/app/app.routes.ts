@@ -27,7 +27,7 @@ export const routes: Routes = [
   {
     path: 'inicio',
     component: Inicio,
-    canActivate: [LoginGuard],
+    canActivate: [AuthGuard],
   },
   {
     path: 'peluquerias',

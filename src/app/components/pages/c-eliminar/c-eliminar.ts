@@ -34,7 +34,6 @@ export class CEliminar implements OnInit {
     this.route.queryParams.subscribe((params) => {
       this.tipo = params['tipo'];
       this.id = params['id'];
-
     });
   }
 
