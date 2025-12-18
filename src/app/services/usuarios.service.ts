@@ -16,15 +16,15 @@ export class UsuariosService {
     return this.http.get<Page<Usuario>>(this.apiUrl);
   }
   crearUsuario(usuario: any): Observable<any> {
-    return this.http.post<any>(`${this.apiUrl}/usuarios`, usuario);
+    return this.http.post<any>(`${this.apiUrl}`, usuario);
   }
   verUsuario(id: number): Observable<any> {
-    return this.http.get<any>(`${this.apiUrl}/usuarios/${id}`);
+    return this.http.get<any>(`${this.apiUrl}/${id}`);
   }
   modificarUsuario(id: number, usuario: any): Observable<any> {
-    return this.http.put<any>(`${this.apiUrl}/usuarios/${id}`, usuario);
+    return this.http.put<any>(`${this.apiUrl}/${id}`, usuario);
   }
   eliminarUsuario(id: number): Observable<void> {
-    return this.http.delete<void>(`${this.apiUrl}/usuarios/${id}`);
+    return this.http.delete<void>(`${this.apiUrl}/${id}`);
   }
 }

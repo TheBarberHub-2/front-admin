@@ -21,8 +21,6 @@ export class CMod implements OnInit {
   usuarioForm!: FormGroup;
   productoForm!: FormGroup;
 
-
-
   constructor(
     private route: ActivatedRoute,
     private fb: FormBuilder,
@@ -30,9 +28,35 @@ export class CMod implements OnInit {
     private categoriasService: CategoriasService,
     private usuariosService: UsuariosService,
     private productosService: ProductosService
-  ) { }
+  ) {}
 
   ngOnInit() {
+    this.peluqueriaForm = this.fb.group({
+      nombre: [''],
+      email: [''],
+      telefono: [''],
+      direccion: [''],
+      ciudad: [''],
+      descripcion: [''],
+    });
+
+    this.categoriaForm = this.fb.group({
+      nombre: [''],
+      descripcion: [''],
+    });
+
+    this.usuarioForm = this.fb.group({
+      nombre: [''],
+      email: [''],
+    });
+
+    this.productoForm = this.fb.group({
+      nombre: [''],
+      precio: [''],
+      stock: [''],
+      categoria_id: [''],
+    });
+
     this.route.queryParams.subscribe((params) => {
       this.tipo = params['tipo'];
       this.id = params['id'];
@@ -50,41 +74,22 @@ export class CMod implements OnInit {
   }
 
   loadUsuario(id: number) {
-    console.log('Cargando usuario con ID:', id);
-
-    this.usuarioForm = this.fb.group({
-      nombre: [''],
-      email: [''],
-    });
-
     this.usuariosService.verUsuario(id).subscribe({
       next: (usuario) => {
-        console.log('Usuario obtenido:', usuario);
         if (usuario) {
           this.usuarioForm.patchValue({
             nombre: usuario.nombre,
             email: usuario.email,
           });
-          console.log('Formulario actualizado con:', this.usuarioForm.value);
         }
       },
-      error: (err) => console.error('Error cargando usuario:', err)
+      error: (err) => console.error('Error cargando usuario:', err),
     });
   }
 
   loadPeluqueria(id: string) {
-    this.peluqueriaForm = this.fb.group({
-      nombre: [''],
-      email: [''],
-      telefono: [''],
-      direccion: [''],
-      ciudad: [''],
-      descripcion: [''],
-    });
-
     this.peluqueriasService.verPeluqueria(Number(id)).subscribe({
       next: (peluqueria) => {
-        console.log('Peluquería obtenida:', peluqueria);
         if (peluqueria) {
           this.peluqueriaForm.patchValue({
             nombre: peluqueria.nombre,
@@ -92,23 +97,17 @@ export class CMod implements OnInit {
             telefono: peluqueria.telefono,
             direccion: peluqueria.direccion,
             ciudad: peluqueria.ciudad || peluqueria.municipio,
-            descripcion: peluqueria.descripcion || ''
+            descripcion: peluqueria.descripcion || '',
           });
         }
       },
-      error: (err) => console.error('Error cargando peluquería:', err)
+      error: (err) => console.error('Error cargando peluquería:', err),
     });
   }
 
   loadCategoria(id: string) {
-    this.categoriaForm = this.fb.group({
-      nombre: [''],
-      descripcion: [''],
-    });
-
     this.categoriasService.verCategoria(Number(id)).subscribe({
       next: (categoria) => {
-        console.log('Categoría obtenida:', categoria);
         if (categoria) {
           this.categoriaForm.patchValue({
             nombre: categoria.nombre,
@@ -116,21 +115,13 @@ export class CMod implements OnInit {
           });
         }
       },
-      error: (err) => console.error('Error cargando categoría:', err)
+      error: (err) => console.error('Error cargando categoría:', err),
     });
   }
 
   loadProducto(id: string) {
-    this.productoForm = this.fb.group({
-      nombre: [''],
-      precio: [''],
-      stock: [''],
-      categoria_id: [''],
-    });
-
     this.productosService.verProducto(Number(id)).subscribe({
       next: (producto) => {
-        console.log('Producto obtenido:', producto);
         if (producto) {
           this.productoForm.patchValue({
             nombre: producto.nombre,
@@ -140,43 +131,25 @@ export class CMod implements OnInit {
           });
         }
       },
-      error: (err) => console.error('Error cargando producto:', err)
+      error: (err) => console.error('Error cargando producto:', err),
     });
   }
 
   onSubmitPeluqueria() {
     if (this.peluqueriaForm.valid) {
-      console.log('Peluquería modificada:', this.peluqueriaForm.value);
-      this.peluqueriasService.modificarPeluqueria(this.id!, this.peluqueriaForm.value).subscribe({
-        next: (peluqueria) => {
-          console.log('Peluquería modificada:', peluqueria);
-        },
-        error: (err) => console.error('Error modificando peluquería:', err)
-      });
+      this.peluqueriasService.modificarPeluqueria(this.id!, this.peluqueriaForm.value).subscribe();
     }
   }
 
   onSubmitCategoria() {
     if (this.categoriaForm.valid) {
-      console.log('Categoría modificada:', this.categoriaForm.value);
-      this.categoriasService.modificarCategoria(this.id!, this.categoriaForm.value).subscribe({
-        next: (categoria) => {
-          console.log('Categoría modificada:', categoria);
-        },
-        error: (err) => console.error('Error modificando categoría:', err)
-      });
+      this.categoriasService.modificarCategoria(this.id!, this.categoriaForm.value).subscribe();
     }
   }
 
   onSubmitUsuario() {
     if (this.usuarioForm.valid) {
-      console.log('Usuario modificado:', this.usuarioForm.value);
-      this.usuariosService.modificarUsuario(this.id!, this.usuarioForm.value).subscribe({
-        next: (usuario) => {
-          console.log('Usuario modificado:', usuario);
-        },
-        error: (err) => console.error('Error modificando usuario:', err)
-      });
+      this.usuariosService.modificarUsuario(this.id!, this.usuarioForm.value).subscribe();
     }
   }
 }
