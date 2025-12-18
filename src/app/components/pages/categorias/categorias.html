@@ -25,11 +25,11 @@
                 <td class="bh--p-3 bh-texto-primario">{{categoria.nombre}}</td>
                 <td class="bh--p-3 bh-texto-primario">{{categoria.descripcion}}</td>
                 <td class="bh--p-3"><a [routerLink]="['/mod']" [queryParams]="{tipo: 'categoria', id: categoria.id}"
-                        class="categorias-page__link bh-cursor-pointer bh-texto-acento">Modificar</a></td>
+                        class="categorias-page__link bh-cursor-pointer bh-texto-acento bh--color-fondo-azul-5 bh--p-2 bh--pl-7 bh--pr-7 bh--radio-3">Modificar</a></td>
                 <td class="bh--p-3"><a [routerLink]="['/eliminar']" [queryParams]="{tipo: 'categoria', id: categoria.id}"
-                        class="categorias-page__link bh-cursor-pointer bh-texto-acento">Eliminar</a></td>
+                        class="categorias-page__link bh-cursor-pointer bh-texto-acento bh--color-fondo-rojo-5 bh--p-2 bh--pl-7 bh--pr-7 bh--radio-3">Eliminar</a></td>
                 <td class="bh--p-3"><a [routerLink]="['/ver']" [queryParams]="{tipo: 'categoria', id: categoria.id}"
-                        class="categorias-page__link bh-cursor-pointer bh-texto-acento">Ver</a></td>
+                        class="categorias-page__link bh-cursor-pointer bh-texto-acento bh--color-fondo-verde-4 bh--p-2 bh--pl-7 bh--pr-7 bh--radio-3">Ver</a></td>
             </tr>
             }
         </tbody>
