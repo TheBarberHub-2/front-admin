@@ -33,7 +33,7 @@ export class CMod implements OnInit {
 
   ngOnInit() {
     this.peluqueriaForm = this.fb.group({
-      nombre: [''],
+      nombre: [{ value: '', disabled: true }],
       email: [''],
       telefono: [''],
       direccion: [''],
@@ -138,9 +138,20 @@ export class CMod implements OnInit {
 
   onSubmitPeluqueria() {
     if (this.peluqueriaForm.valid) {
-      this.peluqueriasService.modificarPeluqueria(this.id!, this.peluqueriaForm.value).subscribe();
-      alert('Peluquería modificada correctamente');
-      this.router.navigate(['/peluquerias']);
+      const peluqueriaData = { ...this.peluqueriaForm.getRawValue() };
+      peluqueriaData.municipio = peluqueriaData.ciudad;
+      delete peluqueriaData.ciudad;
+
+      this.peluqueriasService.modificarPeluqueria(this.id!, peluqueriaData).subscribe({
+        next: () => {
+          alert('Peluquería modificada correctamente');
+          this.router.navigate(['/peluquerias']);
+        },
+        error: (err) => {
+          console.error('Error al modificar peluquería:', err);
+          alert('Error al modificar peluquería');
+        }
+      });
     }
   }
 

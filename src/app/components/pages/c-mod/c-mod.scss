@@ -24,4 +24,11 @@
             font-size: var(--bh-texto-4);
         }
     }
+
+    input:disabled {
+        background-color: var(--bh-color-gris-3);
+        color: var(--bh-color-gris-6);
+        cursor: not-allowed;
+        border-color: var(--bh-color-gris-4);
+    }
 }
