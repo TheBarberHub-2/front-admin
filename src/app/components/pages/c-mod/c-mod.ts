@@ -34,7 +34,7 @@ export class CMod implements OnInit {
   ngOnInit() {
     this.peluqueriaForm = this.fb.group({
       nombre: [{ value: '', disabled: true }],
-      email: [''],
+      email: [{ value: '', disabled: true }],
       telefono: [''],
       direccion: [''],
       ciudad: [''],

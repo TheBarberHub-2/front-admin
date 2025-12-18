@@ -49,30 +49,54 @@ export class CVer implements OnInit {
         });
     }
 
+    private extractData(response: any): any {
+        let extracted = response.data || response;
+        if (Array.isArray(extracted)) {
+            extracted = extracted.length > 0 ? extracted[0] : null;
+        }
+        return extracted;
+    }
+
     loadUsuario(id: number) {
         this.usuariosService.verUsuario(id).subscribe({
-            next: (usuario) => this.data = usuario,
+            next: (res) => {
+                console.log('Usuario raw:', res);
+                this.data = this.extractData(res);
+                console.log('Usuario extracted:', this.data);
+            },
             error: (err) => console.error('Error cargando usuario:', err)
         });
     }
 
     loadPeluqueria(id: number) {
         this.peluqueriasService.verPeluqueria(id).subscribe({
-            next: (peluqueria) => this.data = peluqueria,
+            next: (res) => {
+                console.log('Peluqueria raw:', res);
+                this.data = this.extractData(res);
+                console.log('Peluqueria extracted:', this.data);
+            },
             error: (err) => console.error('Error cargando peluquería:', err)
         });
     }
 
     loadCategoria(id: number) {
         this.categoriasService.verCategoria(id).subscribe({
-            next: (categoria) => this.data = categoria,
+            next: (res) => {
+                console.log('Categoria raw:', res);
+                this.data = this.extractData(res);
+                console.log('Categoria extracted:', this.data);
+            },
             error: (err) => console.error('Error cargando categoría:', err)
         });
     }
 
     loadProducto(id: number) {
         this.productosService.verProducto(id).subscribe({
-            next: (producto) => this.data = producto,
+            next: (res) => {
+                console.log('Producto raw:', res);
+                this.data = this.extractData(res);
+                console.log('Producto extracted:', this.data);
+            },
             error: (err) => console.error('Error cargando producto:', err)
         });
     }

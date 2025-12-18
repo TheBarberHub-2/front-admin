@@ -4,16 +4,13 @@
             [queryParams]="{ tipo: 'producto' }">
             Crear Producto
         </button>
-        <div class="productos-page__search bh-d-flex bh-gap-2">
-            <input type="text" placeholder="Buscar" class="productos-page__input bh--p-2 bh-rounded-md" />
-            <button class="productos-page__search-btn bh-panel__button">🔍</button>
-        </div>
+        <app-search (search)="onSearch($event)"></app-search>
     </div>
 
     <table class="productos-page__table bh-w-full bh-text-left">
         <thead>
             <tr>
-                <th class="bh-p-3 bh-texto-primario">ID</th>    
+                <th class="bh-p-3 bh-texto-primario">ID</th>
                 <th class="bh-p-3 bh-texto-primario">Nombre</th>
                 <th class="bh-p-3 bh-texto-primario">Peluquería</th>
                 <th class="bh-p-3 bh-texto-primario">Precio</th>
@@ -45,5 +42,6 @@
                 </td>
             </tr>
         </tbody>
-    }</table>
-</div>  
+        }
+    </table>
+</div>
