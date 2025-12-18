@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { PeluqueriasService } from '../../../services/peluquerias.service';
+import { PeluqueriaSummary } from '../../../models/peluquerias/peluqueria.summary';
 
 @Component({
   selector: 'app-peluquerias',
@@ -11,7 +12,7 @@ import { PeluqueriasService } from '../../../services/peluquerias.service';
   styleUrl: './peluquerias.scss',
 })
 export class Peluquerias implements OnInit {
-  peluquerias: any[] = [];
+  peluquerias: PeluqueriaSummary[] = [];
 
   constructor(private peluqueriasService: PeluqueriasService) {}
 

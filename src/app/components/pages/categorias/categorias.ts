@@ -12,24 +12,13 @@ import { Categoria } from '../../../models/categorias/categoria';
   styleUrl: './categorias.scss',
 })
 export class Categorias implements OnInit {
-  id: any;
-  nombre: any;
-  descripcion: any;
+  categorias: Categoria[] = [];
 
   constructor(private categoriasService: CategoriasService) {}
-  categorias: Categoria[] = [];
-  CatFiltradas: Categoria[] = [];
-  search: string = '';
+
   ngOnInit() {
     this.categoriasService.getCategorias().subscribe((data) => {
       this.categorias = data.data;
-      this.CatFiltradas = data.data;
     });
-  }
-  Buscar() {
-    const texto = this.search.toLowerCase();
-    this.CatFiltradas = this.categorias.filter(
-      (t) => t.nombre.toLowerCase().includes(texto) || t.descripcion.toLowerCase().includes(texto)
-    );
   }
 }
