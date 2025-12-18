@@ -21,7 +21,7 @@ export class PeluqueriasService {
   modificarPeluqueria(id: number, peluqueria: any): Observable<any> {
     return this.http.put<any>(`${this.apiUrl}/peluquerias/${id}`, peluqueria);
   }
-  eliminarPeluqueria(id: number): Observable<any> {
-    return this.http.delete<any>(`${this.apiUrl}/peluquerias/${id}`);
+  eliminarPeluqueria(id: number): Observable<void> {
+    return this.http.delete<void>(`${this.apiUrl}/peluquerias/${id}`);
   }
 }

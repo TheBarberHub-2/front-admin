@@ -21,7 +21,7 @@ export class CategoriasService {
   modificarCategoria(id: number, categoria: any): Observable<any> {
     return this.http.put<any>(`${this.apiUrl}/${id}`, categoria);
   }
-  eliminarCategoria(id: number): Observable<any> {
-    return this.http.delete<any>(`${this.apiUrl}/${id}`);
+  eliminarCategoria(id: number): Observable<void> {
+    return this.http.delete<void>(`${this.apiUrl}/${id}`);
   }
 }
