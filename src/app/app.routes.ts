@@ -10,6 +10,7 @@ import { CCrear } from './components/pages/c-crear/c-crear';
 import { CEliminar } from './components/pages/c-eliminar/c-eliminar';
 import { CVer } from './components/pages/c-ver/c-ver';
 import { AuthGuard } from './services/Auth.guard';
+import { LoginGuard } from './services/login.guard';
 
 export const routes: Routes = [
   {
@@ -26,7 +27,7 @@ export const routes: Routes = [
   {
     path: 'inicio',
     component: Inicio,
-    canActivate: [AuthGuard],
+    canActivate: [LoginGuard],
   },
   {
     path: 'peluquerias',

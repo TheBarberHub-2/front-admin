@@ -19,21 +19,22 @@ export class AuthGuard implements CanActivate {
       this.router.navigate(['/login']);
       return false;
     }
-    this.loginService.getRol().subscribe({
-      next: (rol) => {
+
+    return this.loginService.getRol().pipe(
+      map(rol => {
         if (rol === Rol.Admin) {
           return true;
         } else {
-          alert('No tienes permiso para acceder a esta ruta');
+          alert('No tienes los permisos necesarios');
           this.router.navigate(['/inicio']);
           return false;
         }
-      },
-      error: (err) => {
+      }),
+      catchError((err) => {
         console.error('Error al obtener el rol:', err);
-        return false;
-      }
-    });
-    return true;
+        this.router.navigate(['/login']);
+        return of(false);
+      })
+    );
   }
 }
