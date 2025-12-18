@@ -9,6 +9,7 @@ import { CMod } from './components/pages/c-mod/c-mod';
 import { CCrear } from './components/pages/c-crear/c-crear';
 import { CEliminar } from './components/pages/c-eliminar/c-eliminar';
 import { CVer } from './components/pages/c-ver/c-ver';
+import { CCerrarSesion } from './components/pages/c-cerrar-sesion/c-cerrar-sesion';
 import { AuthGuard } from './services/Auth.guard';
 import { LoginGuard } from './services/login.guard';
 
@@ -67,6 +68,11 @@ export const routes: Routes = [
   {
     path: 'crear',
     component: CCrear,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'cerrar-sesion',
+    component: CCerrarSesion,
     canActivate: [AuthGuard],
   },
 
