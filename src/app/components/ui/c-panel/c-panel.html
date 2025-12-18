@@ -4,38 +4,26 @@
   <div class="bh-panel__actions">
     @if(this.titulo == 'Peluquerias') {
     <button class="bh-panel__button bh-panel__button--ver" routerLink="/peluquerias">Ver</button>
-    <button
-      class="bh-panel__button bh-panel__button--add"
-      [routerLink]="['/crear']"
-      [queryParams]="{ tipo: 'peluqueria' }"
-    >
+    <button class="bh-panel__button bh-panel__button--add" [routerLink]="['/crear']"
+      [queryParams]="{ tipo: 'peluqueria' }">
       Añadir
     </button>
     } @if(this.titulo == 'Categorías'){
     <button class="bh-panel__button bh-panel__button--ver" routerLink="/categorias">Ver</button>
-    <button
-      class="bh-panel__button bh-panel__button--add"
-      [routerLink]="['/crear']"
-      [queryParams]="{ tipo: 'categoria' }"
-    >
+    <button class="bh-panel__button bh-panel__button--add" [routerLink]="['/crear']"
+      [queryParams]="{ tipo: 'categoria' }">
       Añadir
     </button>
     } @if(this.titulo == 'Usuarios'){
     <button class="bh-panel__button bh-panel__button--ver" routerLink="/usuarios">Ver</button>
-    <button
-      class="bh-panel__button bh-panel__button--add"
-      [routerLink]="['/crear']"
-      [queryParams]="{ tipo: 'usuario' }"
-    >
+    <button class="bh-panel__button bh-panel__button--add" [routerLink]="['/crear']"
+      [queryParams]="{ tipo: 'usuario' }">
       Añadir
     </button>
     } @if(this.titulo == 'Productos'){
     <button class="bh-panel__button bh-panel__button--ver" routerLink="/productos">Ver</button>
-    <button
-      class="bh-panel__button bh-panel__button--add"
-      [routerLink]="['/crear']"
-      [queryParams]="{ tipo: 'productos' }"
-    >
+    <button class="bh-panel__button bh-panel__button--add" [routerLink]="['/crear']"
+      [queryParams]="{ tipo: 'productos' }">
       Añadir
     </button>
     }
