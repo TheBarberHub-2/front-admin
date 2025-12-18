@@ -27,8 +27,9 @@ export class CMod implements OnInit {
     private peluqueriasService: PeluqueriasService,
     private categoriasService: CategoriasService,
     private usuariosService: UsuariosService,
-    private productosService: ProductosService
-  ) {}
+    private productosService: ProductosService,
+    private router: Router
+  ) { }
 
   ngOnInit() {
     this.peluqueriaForm = this.fb.group({
@@ -138,18 +139,32 @@ export class CMod implements OnInit {
   onSubmitPeluqueria() {
     if (this.peluqueriaForm.valid) {
       this.peluqueriasService.modificarPeluqueria(this.id!, this.peluqueriaForm.value).subscribe();
+      alert('Peluquería modificada correctamente');
+      this.router.navigate(['/peluquerias']);
     }
   }
 
   onSubmitCategoria() {
     if (this.categoriaForm.valid) {
       this.categoriasService.modificarCategoria(this.id!, this.categoriaForm.value).subscribe();
+      alert('Categoría modificada correctamente');
+      this.router.navigate(['/categorias']);
     }
   }
 
   onSubmitUsuario() {
     if (this.usuarioForm.valid) {
       this.usuariosService.modificarUsuario(this.id!, this.usuarioForm.value).subscribe();
+      alert('Usuario modificado correctamente');
+      this.router.navigate(['/usuarios']);
     }
   }
+
+  onSubmitProducto() {
+    this.productosService.modificarProducto(this.id!, this.productoForm.value).subscribe();
+
+    alert('Producto modificado correctamente');
+    this.router.navigate(['/productos']);
+  }
+
 }
