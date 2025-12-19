@@ -11,7 +11,7 @@ export class LoginService {
   private apiUrl = 'http://localhost:8080/auth';
 
   constructor(private http: HttpClient) {}
-  getRol():Observable<Rol>{
+  getRol(): Observable<Rol> {
     return this.http.get<Rol>(this.apiUrl + '/rol');
   }
   logIn(credentials: LogIn): Observable<void> {
@@ -21,5 +21,10 @@ export class LoginService {
       }),
       map(() => {})
     );
+  }
+  logOut(): Observable<void> {
+    return this.http
+      .delete<void>(this.apiUrl + '/logout')
+      .pipe(tap(() => localStorage.removeItem('token')));
   }
 }
