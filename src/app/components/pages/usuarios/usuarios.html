@@ -10,6 +10,7 @@
   <table class="usuarios-page__table bh-w-full bh-text-left">
     <thead>
       <tr>
+        <th class="bh--p-3 bh-texto-primario">ID</th>
         <th class="bh--p-3 bh-texto-primario">Nombre</th>
         <th class="bh--p-3 bh-texto-primario">Email</th>
         <th class="bh--p-3 bh-texto-primario">Rol</th>
@@ -19,7 +20,9 @@
       </tr>
     </thead>
     <tbody>
-      <tr class="usuarios-page__row bh-fondo-gris" *ngFor="let u of usuarios">
+      @for (u of usuarios; track u.id) {
+      <tr class="usuarios-page__row bh-fondo-gris">
+        <td class="bh--p-3 bh-texto-primario">{{ u.id }}</td>
         <td class="bh--p-3 bh-texto-primario">{{ u.nombre }}</td>
         <td class="bh--p-3 bh-texto-primario">{{ u.email }}</td>
         <td class="bh--p-3 bh-texto-primario">{{ u.rol }}</td>
@@ -36,6 +39,7 @@
             class="usuarios-page__link bh-cursor-pointer bh-texto-acento bh--color-fondo-verde-4 bh--p-2 bh--pl-7 bh--pr-7 bh--radio-3">Ver</a>
         </td>
       </tr>
+      }
     </tbody>
   </table>
 </div>
