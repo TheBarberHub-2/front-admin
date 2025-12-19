@@ -10,6 +10,7 @@
   <table class="categorias-page__table bh-w-full bh-text-left">
     <thead>
       <tr>
+        <th class="bh--p-3 bh-texto-primario">ID</th>
         <th class="bh-p-3 bh-texto-primario">Nombre</th>
         <th class="bh-p-3 bh-texto-primario">Descripción</th>
         <th class="bh--p-3 bh-texto-primario">Acciones</th>
@@ -18,7 +19,9 @@
       </tr>
     </thead>
     <tbody>
-      <tr class="categorias-page__row bh-fondo-gris" *ngFor="let c of categorias">
+      @for (c of categorias; track c.id) {
+      <tr class="categorias-page__row bh-fondo-gris">
+        <td>{{ c.id }}</td>
         <td class="bh--p-3 bh-texto-primario">{{ c.nombre }}</td>
         <td class="bh--p-3 bh-texto-primario">{{ c.descripcion }}</td>
         <td class="bh--p-3">
@@ -34,6 +37,7 @@
             class="categorias-page__link bh-cursor-pointer bh-texto-acento bh--color-fondo-verde-4 bh--p-2 bh--pl-7 bh--pr-7 bh--radio-3">Ver</a>
         </td>
       </tr>
+      }
     </tbody>
   </table>
 </div>
