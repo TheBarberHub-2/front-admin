@@ -23,6 +23,7 @@
     <tbody>
       @for (p of peluquerias; track p.id) {
       <tr class="peluquerias-page__row bh-fondo-gris">
+        <td class="bh--p-3 bh-texto-primario">{{ p.id }}</td>
         <td class="bh--p-3 bh-texto-primario">{{ p.nombre }}</td>
         <td class="bh--p-3 bh-texto-primario">{{ p.municipio }}</td>
         <td class="bh--p-3 bh-texto-primario">{{ p.direccion }}</td>
