@@ -1,5 +1,8 @@
 <div class="form-wrapper">
-  <h2>Login</h2>
+  <h2>
+    TheBarberHub <br />
+    Login
+  </h2>
   <form (ngSubmit)="onSubmitLogin()" #f="ngForm">
     <div class="form-group">
       <input name="email" type="email" required [(ngModel)]="login.email" placeholder="Email" />
@@ -13,6 +16,13 @@
         placeholder="Contraseña"
       />
     </div>
-    <button class="btn btn-primary" [disabled]="!f.form.valid">Entrar</button>
+    <button
+      class="btn btn-primary bh--p-5 bh--color-fondo-azul-5 bh--w-10 bh--radio-4"
+      [disabled]="!f.form.valid"
+    >
+      Entrar
+    </button>
   </form>
+  <br />
+  <div *ngIf="error" class="mt-2 alert alert-danger">Credenciales Incorrectas</div>
 </div>

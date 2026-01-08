@@ -7,10 +7,11 @@ import { RouterLink } from '@angular/router';
 import { UsuariosService } from '../../../services/usuarios.service';
 import { ProductosService } from '../../../services/productos.service';
 import { Rol } from '../../../enums/rol.enum';
+import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-c-crear',
   standalone: true,
-  imports: [ReactiveFormsModule, RouterLink],
+  imports: [ReactiveFormsModule, RouterLink, CommonModule],
   templateUrl: './c-crear.html',
   styleUrl: './c-crear.scss',
 })
@@ -24,6 +25,7 @@ export class CCrear implements OnInit {
   usuarios: any[] = [];
   peluquerias: any[] = [];
   categorias: any[] = [];
+  error: string = '';
 
   constructor(
     private route: ActivatedRoute,
@@ -87,10 +89,15 @@ export class CCrear implements OnInit {
   onSubmitPeluqueria() {
     if (this.peluqueriaForm.valid) {
       console.log('Nueva peluquería a crear:', this.peluqueriaForm.value);
-      this.peluqueriasService.crearPeluqueria(this.peluqueriaForm.value).subscribe(() => {
-        this.peluqueriaForm.reset();
-        alert('Peluquería creada correctamente');
-        this.router.navigate(['/peluquerias']);
+      this.peluqueriasService.crearPeluqueria(this.peluqueriaForm.value).subscribe({
+        next: () => {
+          this.peluqueriaForm.reset();
+          alert('Peluquería creada correctamente');
+          this.router.navigate(['/peluquerias']);
+        },
+        error: (err) => {
+          this.error = err.error?.message;
+        },
       });
     }
   }
@@ -98,10 +105,15 @@ export class CCrear implements OnInit {
   onSubmitCategoria() {
     if (this.categoriaForm.valid) {
       console.log('Nueva categoría a crear:', this.categoriaForm.value);
-      this.categoriasService.crearCategoria(this.categoriaForm.value).subscribe(() => {
-        this.categoriaForm.reset();
-        alert('Categoría creada correctamente');
-        this.router.navigate(['/categorias']);
+      this.categoriasService.crearCategoria(this.categoriaForm.value).subscribe({
+        next: () => {
+          this.categoriaForm.reset();
+          alert('Categoría creada correctamente');
+          this.router.navigate(['/categorias']);
+        },
+        error: (err) => {
+          this.error = err.error?.message;
+        },
       });
     }
   }
@@ -109,10 +121,15 @@ export class CCrear implements OnInit {
   onSubmitUsuario() {
     if (this.usuarioForm.valid) {
       console.log('Nuevo usuario a crear:', this.usuarioForm.value);
-      this.usuarioService.crearUsuario(this.usuarioForm.value).subscribe(() => {
-        this.usuarioForm.reset();
-        alert('Usuario creado correctamente');
-        this.router.navigate(['/usuarios']);
+      this.usuarioService.crearUsuario(this.usuarioForm.value).subscribe({
+        next: () => {
+          this.usuarioForm.reset();
+          alert('Usuario creado correctamente');
+          this.router.navigate(['/usuarios']);
+        },
+        error: (err) => {
+          this.error = err.error?.message;
+        },
       });
     }
   }
@@ -120,10 +137,15 @@ export class CCrear implements OnInit {
   onSubmitProducto() {
     if (this.productoForm.valid) {
       console.log('Nuevo producto a crear:', this.productoForm.value);
-      this.productoService.crearProducto(this.productoForm.value).subscribe(() => {
-        this.productoForm.reset();
-        alert('Producto creado correctamente');
-        this.router.navigate(['/productos']);
+      this.productoService.crearProducto(this.productoForm.value).subscribe({
+        next: () => {
+          this.productoForm.reset();
+          alert('Producto creado correctamente');
+          this.router.navigate(['/productos']);
+        },
+        error: (err) => {
+          this.error = err.error?.message;
+        },
       });
     }
   }

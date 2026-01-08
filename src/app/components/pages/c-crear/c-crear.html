@@ -36,6 +36,7 @@
         <button type="button" class="btn-cancel" routerLink="/peluquerias">Cancelar</button>
       </div>
     </form>
+    <div *ngIf="error" class="mt-2 alert alert-danger">{{ error }}</div>
   </div>
   }
 
@@ -60,6 +61,7 @@
         <button type="button" class="btn-cancel" routerLink="/categorias">Cancelar</button>
       </div>
     </form>
+    <div *ngIf="error" class="mt-2 alert alert-danger">{{ error }}</div>
   </div>
   }
 
@@ -97,6 +99,7 @@
         <button type="button" class="btn-cancel" routerLink="/usuarios">Cancelar</button>
       </div>
     </form>
+    <div *ngIf="error" class="mt-2 alert alert-danger">{{ error }}</div>
   </div>
   } @else if(tipo === 'producto'){
   <div class="form-wrapper">
@@ -140,6 +143,7 @@
         <button type="button" class="btn-cancel" routerLink="/productos">Cancelar</button>
       </div>
     </form>
+    <div *ngIf="error" class="mt-2 alert alert-danger">{{ error }}</div>
   </div>
   }
 

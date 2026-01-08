@@ -6,10 +6,11 @@ import { CategoriasService } from '../../../services/categorias.service';
 import { RouterLink } from '@angular/router';
 import { UsuariosService } from '../../../services/usuarios.service';
 import { ProductosService } from '../../../services/productos.service';
+import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-c-mod',
   standalone: true,
-  imports: [ReactiveFormsModule, RouterLink],
+  imports: [ReactiveFormsModule, RouterLink, CommonModule],
   templateUrl: './c-mod.html',
   styleUrl: './c-mod.scss',
 })
@@ -20,6 +21,7 @@ export class CMod implements OnInit {
   categoriaForm!: FormGroup;
   usuarioForm!: FormGroup;
   productoForm!: FormGroup;
+  error: string = '';
 
   constructor(
     private route: ActivatedRoute,
@@ -146,33 +148,51 @@ export class CMod implements OnInit {
           this.router.navigate(['/peluquerias']);
         },
         error: (err) => {
-          console.error('Error al modificar peluquería:', err);
-          alert('Error al modificar peluquería');
-        }
+          this.error = err.error?.message;
+        },
       });
     }
   }
 
   onSubmitCategoria() {
     if (this.categoriaForm.valid) {
-      this.categoriasService.modificarCategoria(this.id!, this.categoriaForm.value).subscribe();
-      alert('Categoría modificada correctamente');
-      this.router.navigate(['/categorias']);
+      this.categoriasService.modificarCategoria(this.id!, this.categoriaForm.value).subscribe({
+        next: () => {
+          alert('Categoría modificada correctamente');
+          this.router.navigate(['/categorias']);
+        },
+        error: (err) => {
+          this.error = err.error?.message;
+        },
+      });
     }
   }
 
   onSubmitUsuario() {
     if (this.usuarioForm.valid) {
-      this.usuariosService.modificarUsuario(this.id!, this.usuarioForm.value).subscribe();
-      alert('Usuario modificado correctamente');
-      this.router.navigate(['/usuarios']);
+      this.usuariosService.modificarUsuario(this.id!, this.usuarioForm.value).subscribe({
+        next: () => {
+          alert('Usuario modificado correctamente');
+          this.router.navigate(['/usuarios']);
+        },
+        error: (err) => {
+          this.error = err.error?.message;
+        },
+      });
     }
   }
 
   onSubmitProducto() {
-    this.productosService.modificarProducto(this.id!, this.productoForm.value).subscribe();
-
-    alert('Producto modificado correctamente');
-    this.router.navigate(['/productos']);
+    if (this.productoForm.valid) {
+      this.productosService.modificarProducto(this.id!, this.productoForm.value).subscribe({
+        next: () => {
+          alert('Producto modificado correctamente');
+          this.router.navigate(['/productos']);
+        },
+        error: (err) => {
+          this.error = err.error?.message;
+        },
+      });
+    }
   }
 }

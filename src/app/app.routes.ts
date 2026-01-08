@@ -28,7 +28,7 @@ export const routes: Routes = [
   {
     path: 'inicio',
     component: Inicio,
-    canActivate: [AuthGuard],
+    canActivate: [LoginGuard],
   },
   {
     path: 'peluquerias',
@@ -73,7 +73,7 @@ export const routes: Routes = [
   {
     path: 'cerrar-sesion',
     component: CCerrarSesion,
-    canActivate: [AuthGuard],
+    canActivate: [LoginGuard],
   },
 
   {
