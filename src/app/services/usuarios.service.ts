@@ -8,9 +8,9 @@ import { Usuario } from '../models/usuarios/usuario';
   providedIn: 'root',
 })
 export class UsuariosService {
-  private apiUrl = 'http://localhost:8080/api/usuarios';
+  private apiUrl = 'http://thebarberhub-back.producciondaw.cip.fpmislata.com/api/usuarios';
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
 
   getUsuarios(): Observable<Page<Usuario>> {
     return this.http.get<Page<Usuario>>(this.apiUrl);

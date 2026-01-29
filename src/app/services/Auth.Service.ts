@@ -7,8 +7,8 @@ import { Router } from '@angular/router';
 })
 export class AuthService {
 
-  private apiUrl = 'http://localhost:8080/api/auth/login'; 
-  constructor(private http: HttpClient, private router: Router) {}
+  private apiUrl = 'http://thebarberhub-back.producciondaw.cip.fpmislata.com/auth/login';
+  constructor(private http: HttpClient, private router: Router) { }
 
   login(credentials: any) {
     return this.http.post<any>(this.apiUrl, credentials);

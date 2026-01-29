@@ -8,9 +8,10 @@ import { ProductoSummary } from '../models/productos/producto.summary';
   providedIn: 'root',
 })
 export class ProductosService {
-  private apiUrl = 'http://localhost:8080/api/productos';
-
-  constructor(private http: HttpClient) {}
+  private apiUrl = 'http://thebarberhub-back.producciondaw.cip.fpmislata.com/api/productos';
+  private catUrl = 'http://thebarberhub-back.producciondaw.cip.fpmislata.com/api/categorias';
+  private peluqueriaUrl = 'http://thebarberhub-back.producciondaw.cip.fpmislata.com/api/peluquerias';
+  constructor(private http: HttpClient) { }
 
   getProductos(): Observable<Page<ProductoSummary>> {
     return this.http.get<Page<ProductoSummary>>(this.apiUrl);

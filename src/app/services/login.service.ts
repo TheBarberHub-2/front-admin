@@ -8,9 +8,9 @@ import { Rol } from '../enums/rol.enum';
   providedIn: 'root',
 })
 export class LoginService {
-  private apiUrl = 'http://localhost:8080/auth';
+  private apiUrl = 'http://thebarberhub-back.producciondaw.cip.fpmislata.com/auth';
 
-  constructor(private http: HttpClient) {}
+  constructor(private http: HttpClient) { }
   getRol(): Observable<Rol> {
     return this.http.get<Rol>(this.apiUrl + '/rol');
   }
@@ -19,7 +19,7 @@ export class LoginService {
       tap((response) => {
         localStorage.setItem('token', response.token);
       }),
-      map(() => {})
+      map(() => { })
     );
   }
   logOut(): Observable<void> {
