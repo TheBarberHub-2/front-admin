@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { URL } from './URL';
 import { Observable } from 'rxjs';
 import { Page } from '../models/page';
 import { Categoria } from '../models/categorias/categoria';
@@ -8,7 +9,7 @@ import { Categoria } from '../models/categorias/categoria';
   providedIn: 'root',
 })
 export class CategoriasService {
-  private apiUrl = 'http://thebarberhub-back.producciondaw.cip.fpmislata.com/api/categorias';
+  private apiUrl = `${URL}/api/categorias`;
 
   constructor(private http: HttpClient) { }
 

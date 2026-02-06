@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { URL } from './URL';
 import { Router } from '@angular/router';
 
 @Injectable({
@@ -7,7 +8,7 @@ import { Router } from '@angular/router';
 })
 export class AuthService {
 
-  private apiUrl = 'http://thebarberhub-back.producciondaw.cip.fpmislata.com/auth/login';
+  private apiUrl = `${URL}/auth/login`;
   constructor(private http: HttpClient, private router: Router) { }
 
   login(credentials: any) {

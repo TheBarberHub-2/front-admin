@@ -1,4 +1,5 @@
 import { HttpClient } from '@angular/common/http';
+import { URL } from './URL';
 import { Injectable } from '@angular/core';
 import { LogIn } from '../models/login';
 import { map, Observable, tap } from 'rxjs';
@@ -8,7 +9,7 @@ import { Rol } from '../enums/rol.enum';
   providedIn: 'root',
 })
 export class LoginService {
-  private apiUrl = 'http://thebarberhub-back.producciondaw.cip.fpmislata.com/auth';
+  private apiUrl = `${URL}/auth`;
 
   constructor(private http: HttpClient) { }
   getRol(): Observable<Rol> {

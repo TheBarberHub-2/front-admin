@@ -1,4 +1,5 @@
 import { HttpClient } from '@angular/common/http';
+import { URL } from './URL';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Page } from '../models/page';
@@ -8,9 +9,9 @@ import { ProductoSummary } from '../models/productos/producto.summary';
   providedIn: 'root',
 })
 export class ProductosService {
-  private apiUrl = 'http://thebarberhub-back.producciondaw.cip.fpmislata.com/api/productos';
-  private catUrl = 'http://thebarberhub-back.producciondaw.cip.fpmislata.com/api/categorias';
-  private peluqueriaUrl = 'http://thebarberhub-back.producciondaw.cip.fpmislata.com/api/peluquerias';
+  private apiUrl = `${URL}/api/productos`;
+  private catUrl = `${URL}/api/categorias`;
+  private peluqueriaUrl = `${URL}/api/peluquerias`;
   constructor(private http: HttpClient) { }
 
   getProductos(): Observable<Page<ProductoSummary>> {

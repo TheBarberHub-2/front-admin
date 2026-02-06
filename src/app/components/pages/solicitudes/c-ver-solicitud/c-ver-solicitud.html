@@ -1,0 +1,59 @@
+<div class="ver-solicitud-page bh-p-6">
+    <div class="bh-d-flex bh-justify-between bh-align-center bh-mb-6">
+        <h2 class="bh-title">Detalle de Solicitud #{{ solicitud?.id }}</h2>
+        <button class="bh-panel__button" routerLink="/solicitudes">Volver al Listado</button>
+    </div>
+
+    @if (loading) {
+    <div class="bh-text-center bh-p-6">Cargando detalles...</div>
+    } @else if (error) {
+    <div class="bh-alert bh-alert-error bh-p-4">{{ error }}</div>
+    } @else {
+    <div class="bh-card bh-fondo-gris bh-p-6 bh--radio-4">
+        <div class="bh-grid bh-grid-cols-2 bh-gap-6">
+
+            <!-- Información General (desde el objeto anidado solicitud.solicitud) -->
+            <section class="bh-section">
+                <h3 class="bh-subtitle bh-mb-4">Información del Solicitante</h3>
+                <p><strong>Usuario:</strong> {{ solicitud.solicitud.usuario.nombre }}</p>
+                <p><strong>Email:</strong> {{ solicitud.solicitud.usuario.email }}</p>
+                <p><strong>Fecha:</strong> {{ solicitud.solicitud.fecha }}</p>
+                <p><strong>Tipo:</strong> {{ solicitud.solicitud.tipo === 'Peluqueria' ? 'Alta Peluquería' : 'Nuevo
+                    Producto' }}</p>
+                <p><strong>Estado Actual:</strong> {{ solicitud.solicitud.estado }}</p>
+            </section>
+
+            <!-- Detalles Específicos -->
+            <section class="bh-section">
+                <h3 class="bh-subtitle bh-mb-4">Detalles de la Petición</h3>
+
+                @if (solicitud.solicitud.tipo === 'Peluqueria') {
+                <p><strong>Municipio:</strong> {{ asPeluqueria().municipio }}</p>
+                <p><strong>Dirección:</strong> {{ asPeluqueria().direccion }}</p>
+                <p><strong>Teléfono:</strong> {{ asPeluqueria().telefono }}</p>
+                } @else {
+                <p><strong>Nombre del Producto:</strong> {{ asProducto().nombre }}</p>
+                <p><strong>Precio:</strong> {{ asProducto().precio }}€</p>
+                <p><strong>Duración:</strong> {{ asProducto().duracion }} min</p>
+                <!-- Nota: En el backend SolicitudProductoDetailResponse no devuelve la categoría completa, 
+               tal vez debamos ajustar el objeto o el mapper si se necesita aquí. -->
+                }
+            </section>
+        </div>
+
+        <!-- Acciones -->
+        <div class="bh-actions bh-d-flex bh-gap-4 bh-mt-8">
+            <button
+                class="bh-btn bh-btn-success bh--color-fondo-verde-4 bh--p-3 bh--pl-8 bh--pr-8 bh--radio-3 bh-cursor-pointer"
+                (click)="aprobar()" [disabled]="solicitud.solicitud.estado !== 'Pendiente'">
+                Aprobar Solicitud
+            </button>
+            <button
+                class="bh-btn bh-btn-danger bh--color-fondo-rojo-5 bh--p-3 bh--pl-8 bh--pr-8 bh--radio-3 bh-cursor-pointer"
+                (click)="rechazar()" [disabled]="solicitud.solicitud.estado !== 'Pendiente'">
+                Rechazar Solicitud
+            </button>
+        </div>
+    </div>
+    }
+</div>

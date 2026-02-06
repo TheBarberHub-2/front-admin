@@ -1,0 +1,42 @@
+<div class="solicitudes-page bh-p-6">
+    <div class="solicitudes-page__header bh-d-flex bh-justify-between bh-align-center bh-mb-6">
+        <h2 class="solicitudes-page__title">Gestión de Solicitudes Pendientes</h2>
+        <app-search (search)="onSearch($event)"></app-search>
+    </div>
+
+    @if (loading) {
+    <div class="bh-text-center bh-p-6">Cargando solicitudes...</div>
+    } @else {
+    <table class="solicitudes-page__table bh-w-full bh-text-left">
+        <thead>
+            <tr>
+                <th class="bh--p-3 bh-texto-primario">ID</th>
+                <th class="bh--p-3 bh-texto-primario">Usuario</th>
+                <th class="bh--p-3 bh-texto-primario">Tipo</th>
+                <th class="bh--p-3 bh-texto-primario">Acciones</th>
+            </tr>
+        </thead>
+        <tbody>
+            @for (s of solicitudes; track s.id) {
+            <tr class="solicitudes-page__row bh-fondo-gris">
+                <td class="bh--p-3 bh-texto-primario">{{ s.id }}</td>
+                <td class="bh--p-3 bh-texto-primario">{{ s.usuario.nombre }}</td>
+                <td class="bh--p-3 bh-texto-primario">
+                    {{ s.tipo === 'Peluqueria' ? 'Alta Peluquería' : 'Nuevo Producto' }}
+                </td>
+                <td class="bh--p-3 bh-d-flex bh-gap-2">
+                    <button (click)="aprobar(s.id)"
+                        class="solicitudes-page__btn solicitudes-page__btn--success bh-cursor-pointer bh-texto-blanco bh--color-fondo-verde-4 bh--p-2 bh--pl-4 bh--pr-4 bh--radio-3">Aprobar</button>
+                    <button (click)="rechazar(s.id)"
+                        class="solicitudes-page__btn solicitudes-page__btn--danger bh-cursor-pointer bh-texto-blanco bh--color-fondo-rojo-5 bh--p-2 bh--pl-4 bh--pr-4 bh--radio-3">Rechazar</button>
+                </td>
+            </tr>
+            } @empty {
+            <tr>
+                <td colspan="5" class="bh-text-center bh-p-6">No hay solicitudes pendientes en este momento.</td>
+            </tr>
+            }
+        </tbody>
+    </table>
+    }
+</div>

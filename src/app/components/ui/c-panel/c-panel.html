@@ -26,6 +26,8 @@
       [queryParams]="{ tipo: 'productos' }">
       Añadir
     </button>
+    } @if(this.titulo == 'Solicitudes'){
+    <button class="bh-panel__button bh-panel__button--ver" routerLink="/solicitudes">Gestionar</button>
     }
   </div>
 </div>

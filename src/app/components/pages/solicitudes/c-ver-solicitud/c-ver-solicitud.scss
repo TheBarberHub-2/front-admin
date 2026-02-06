@@ -1,0 +1,49 @@
+.ver-solicitud-page {
+    background-color: var(--bh-color-gris-3);
+    min-height: var(--bh-altura-12);
+    padding: var(--bh-p-4);
+
+    .bh-card {
+        background-color: var(--bh-color-gris-1);
+        border: 1px solid var(--bh-color-gris-9);
+    }
+
+    .bh-title {
+        font-size: 1.8rem;
+        color: var(--bh-color-gris-9);
+    }
+
+    .bh-subtitle {
+        font-size: 1.2rem;
+        color: var(--bh-color-gris-9);
+        border-bottom: 2px solid var(--bh-color-gris-3);
+        padding-bottom: 0.5rem;
+    }
+
+    p {
+        margin-bottom: 0.8rem;
+        font-size: 1rem;
+        color: var(--bh-color-gris-8);
+
+        strong {
+            color: var(--bh-color-gris-9);
+        }
+    }
+
+    .bh-btn {
+        border: none;
+        color: white;
+        font-weight: 600;
+        transition: opacity 0.2s;
+
+        &:disabled {
+            background-color: var(--bh-color-gris-4) !important;
+            cursor: not-allowed;
+            opacity: 0.6;
+        }
+
+        &:not(:disabled):hover {
+            opacity: 0.8;
+        }
+    }
+}

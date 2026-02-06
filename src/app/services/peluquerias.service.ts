@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { URL } from './URL';
 import { Observable, forkJoin, map, catchError, of } from 'rxjs';
 import { Page } from '../models/page';
 import { PeluqueriaSummary } from '../models/peluquerias/peluqueria.summary';
@@ -8,7 +9,7 @@ import { PeluqueriaSummary } from '../models/peluquerias/peluqueria.summary';
   providedIn: 'root',
 })
 export class PeluqueriasService {
-  private apiUrl = 'http://thebarberhub-back.producciondaw.cip.fpmislata.com/api/peluquerias';
+  private apiUrl = `${URL}/api/peluquerias`;
 
   constructor(private http: HttpClient) { }
 
