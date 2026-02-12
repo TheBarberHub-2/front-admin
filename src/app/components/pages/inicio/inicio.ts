@@ -45,7 +45,7 @@ export class Inicio implements OnInit {
     });
 
     this.solicitudesService.getSolicitudesPendientes().subscribe((data) => {
-      this.solicitudesCount = data.length;
+      this.solicitudesCount = data.peluquerias.length + data.productos.length;
     });
   }
 }

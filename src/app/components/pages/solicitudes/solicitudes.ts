@@ -7,13 +7,14 @@ import { SearchComponent } from '../../ui/search/search';
 @Component({
     selector: 'app-solicitudes',
     standalone: true,
-    imports: [CommonModule, SearchComponent],
+    imports: [CommonModule],
     templateUrl: './solicitudes.html',
     styleUrl: './solicitudes.scss',
 })
 export class Solicitudes implements OnInit {
-    solicitudes: Solicitud[] = [];
-    todasSolicitudes: Solicitud[] = [];
+    peluquerias: any[] = [];
+    productos: any[] = [];
+    solicitudes: any[] = [];
     loading: boolean = true;
 
     constructor(private solicitudesService: SolicitudesService) { }
@@ -25,9 +26,10 @@ export class Solicitudes implements OnInit {
     cargarSolicitudes() {
         this.loading = true;
         this.solicitudesService.getSolicitudesPendientes().subscribe({
-            next: (data: Solicitud[]) => {
-                this.solicitudes = data;
-                this.todasSolicitudes = data;
+            next: (data) => {
+                this.peluquerias = data.peluquerias ?? [];
+                this.productos = data.productos ?? [];
+                this.solicitudes = [...this.peluquerias, ...this.productos];
                 this.loading = false;
             },
             error: (err: any) => {
@@ -58,19 +60,6 @@ export class Solicitudes implements OnInit {
                 },
                 error: (err) => console.error('Error rejecting solicitud:', err)
             });
-        }
-    }
-
-    onSearch(term: string) {
-        if (!term) {
-            this.solicitudes = this.todasSolicitudes;
-        } else {
-            const lowerTerm = term.toLowerCase();
-            this.solicitudes = this.todasSolicitudes.filter(s =>
-                s.usuario.nombre.toLowerCase().includes(lowerTerm) ||
-                s.tipo.toLowerCase().includes(lowerTerm) ||
-                s.id.toString().includes(lowerTerm)
-            );
         }
     }
 }

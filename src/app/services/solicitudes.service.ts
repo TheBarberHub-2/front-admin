@@ -3,6 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { URL } from './URL';
 import { Observable } from 'rxjs';
 import { Solicitud } from '../models/solicitudes/solicitud';
+import { SolicitudPendiente } from '../models/solicitudes/solicitud-pendiente';
 
 @Injectable({
     providedIn: 'root',
@@ -12,8 +13,8 @@ export class SolicitudesService {
 
     constructor(private http: HttpClient) { }
 
-    getSolicitudesPendientes(): Observable<Solicitud[]> {
-        return this.http.get<Solicitud[]>(`${this.apiUrl}/pendientes`);
+    getSolicitudesPendientes(): Observable<SolicitudPendiente> {
+        return this.http.get<SolicitudPendiente>(`${this.apiUrl}/pendientes`);
     }
 
     getSolicitudById(id: number): Observable<Solicitud> {
