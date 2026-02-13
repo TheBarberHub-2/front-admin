@@ -1,1 +1,1 @@
-export const URL = "http://thebarberhub-back.producciondaw.cip.fpmislata.com";
+export const URL = "http://producciondaw.cip.fpmislata.com";
