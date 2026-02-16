@@ -40,7 +40,6 @@ export class CCrear implements OnInit {
   }
 
   ngOnInit() {
-    // Solo obtenemos el tipo de formulario a mostrar
     this.route.queryParams.subscribe((params) => {
       this.tipo = params['tipo'];
     });
@@ -56,7 +55,6 @@ export class CCrear implements OnInit {
   }
 
   initForms() {
-    // Formulario vacío para crear nueva peluquería
     this.peluqueriaForm = this.fb.group({
       usuarioId: ['', Validators.required],
       telefono: ['', Validators.required],
@@ -64,7 +62,6 @@ export class CCrear implements OnInit {
       municipio: ['', Validators.required],
     });
 
-    // Formulario vacío para crear nueva categoría
     this.categoriaForm = this.fb.group({
       nombre: ['', Validators.required],
       descripcion: [''],

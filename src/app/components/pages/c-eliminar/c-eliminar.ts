@@ -17,7 +17,6 @@ export class CEliminar implements OnInit {
   tipo: 'peluqueria' | 'categoria' | 'usuario' | null = null;
   id: number | null = null;
 
-  // Data for display
   itemNombre: string = '';
   itemDetalles: string = '';
 
